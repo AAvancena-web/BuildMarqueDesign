@@ -940,3 +940,59 @@ footer .contact-list a:hover i { background: var(--brass); color: var(--ink); }
 .menu-toggle.is-open span:nth-child(2) { opacity: 0; transform: scaleX(.3); }
 .menu-toggle.is-open span:nth-child(3) { top: 21px; transform: rotate(-45deg); }
 .site-header.menu-open { background: var(--ink); }
+
+/* =========================================================
+   Mobile: centre-align content (lists, forms, FAQs, cards stay left)
+   ========================================================= */
+@media (max-width: 680px) {
+  /* headings, eyebrows, intro text */
+  .section-head, .showcase-head, .greviews-top, .reviews-top, .index-head .wrap,
+  .hero-content .wrap > div, .page-hero .wrap, .cs-hero .wrap,
+  .intro-grid, .split-sticky, .ind-copy, .leader-copy, .contact-info, .faq-side,
+  .featured-copy, .cs-text, .cs-quote .wrap, .spotlight .wrap, .cta .wrap > div:first-child,
+  .about-grid > div:last-child, .other-inds .wrap, .logo-head { text-align: center; }
+  .eyebrow { justify-content: center; }
+  .section-head, .intro-grid { justify-items: center; }
+  .lead, .page-lead, .ind-copy p, .leader-copy p, .cs-text p, .statement { margin-left: auto; margin-right: auto; }
+  .h2, .display, .page-title { margin-left: auto; margin-right: auto; }
+  .hero h1 { margin-left: auto; margin-right: auto; }
+
+  /* button rows */
+  .hero-actions, .cta-actions, .chip-links, .filters, .faq-tabs, .socials, .fbadges { justify-content: center; }
+  .section-head > div[style*="justify-self:end"] { justify-self: center !important; }
+  .hero-side { justify-self: center; justify-items: center; text-align: center; }
+  .badges { justify-content: center; flex-wrap: wrap; }
+  .featured-copy .btn, .contact-info .btn, .projects .more { margin-left: auto; margin-right: auto; }
+  .featured-copy dl { text-align: center; }
+  .text-link { margin-left: auto; margin-right: auto; }
+  .faq-side { display: flex; flex-direction: column; align-items: center; }
+  .faq-card { width: 100%; text-align: left; }
+
+  /* stats */
+  .stats, .intro.v2 .stats { text-align: center; }
+  .stat, .intro.v2 .stat, .intro.v2 .stat:nth-child(even) { padding-left: 10px !important; padding-right: 10px; }
+
+  /* gbadge, cards with mixed content */
+  .gbadge { flex-direction: column; text-align: center; }
+  .gbadge .btn { margin-left: 0; }
+  .ind-card .body { text-align: center; align-items: center; }
+  .feature { text-align: center; }
+  .info-card { text-align: center; border-left: 0; border-top: 3px solid var(--brass); }
+  .visit-card { text-align: center; }
+  .contact-form h3 { text-align: center; }
+  .panel .inner { text-align: center; }
+
+  /* footer */
+  footer .cols, footer .cols > div { text-align: center; align-items: center; }
+  footer .cols > div:first-child { max-width: none; }
+  footer .flogo { margin-left: auto; margin-right: auto; }
+  footer .cols p { margin-left: auto; margin-right: auto; }
+  footer .contact-list a { justify-content: center; text-align: left; }
+  footer .base { justify-content: center; text-align: center; padding-right: 0; }
+
+  /* keep these left-aligned for readability */
+  .faq-list, .faq-item button, .faq-item .ans p,
+  form.quote, form.quote label, .cs-list,
+  .included-list, .quals, .steps, .job table,
+  .p-meta, .rv, .review, .col .meta { text-align: left; }
+}
