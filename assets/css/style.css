@@ -909,8 +909,17 @@ footer .base a:hover { color: var(--brass); }
 footer .cols { display: flex; justify-content: space-between; gap: 60px; flex-wrap: wrap; }
 footer .cols > div:first-child { max-width: 420px; }
 footer .base { justify-content: space-between; }
-footer { padding-bottom: 100px; }
 footer .fbadges { display: flex; align-items: center; gap: 22px; margin-top: 26px; flex-wrap: wrap; }
 footer .fbadges img { height: 40px; width: auto; opacity: .9; }
 footer .socials { margin-top: 24px; }
 @media (max-width: 680px) { footer .cols { flex-direction: column; gap: 36px; } }
+
+/* Footer contact icons + compact bottom */
+footer { padding-bottom: 28px; }
+footer .base { margin-top: 50px; padding-top: 22px; }
+footer .contact-list { gap: 14px; }
+footer .contact-list a { display: flex; align-items: flex-start; gap: 12px; }
+footer .contact-list i { flex: 0 0 auto; width: 30px; height: 30px; border-radius: 50%; background: rgba(255,255,255,.08); display: grid; place-items: center; color: var(--brass); margin-top: -3px; transition: background .3s, color .3s; }
+footer .contact-list i svg { width: 15px; height: 15px; }
+footer .contact-list a:hover i { background: var(--brass); color: var(--ink); }
+.to-top.lift { bottom: 84px; }

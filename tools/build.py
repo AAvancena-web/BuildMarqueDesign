@@ -9,7 +9,7 @@ from pathlib import Path
 from content import INDUSTRIES, PROJECTS, FAQ_GENERAL, FAQ_ABOUT, FAQ_INDUSTRIES, U
 
 ROOT = Path(__file__).resolve().parent.parent
-V = "24"  # asset version (cache busting)
+V = "25"  # asset version (cache busting)
 e = html.escape
 
 ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>'
@@ -97,7 +97,7 @@ def footer():
         </div>
       </div>
       <div><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="industries.html">Industries</a></li><li><a href="projects.html">Projects</a></li><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact Us</a></li><li><a href="https://www.buildmarque.com.au/user-sitemap/" target="_blank" rel="noopener">User Sitemap</a></li></ul></div>
-      <div><h4>Get In Touch</h4><ul><li><a href="https://maps.app.goo.gl/CQ9kJdqJ7uKTg1127" target="_blank" rel="noopener">L19, 180 Lonsdale Street,<br>Melbourne VIC 3000</a></li><li><a href="tel:1300601871">1300 601 871</a></li><li><a href="mailto:info@buildmarque.com.au">info@buildmarque.com.au</a></li></ul>
+      <div><h4>Get In Touch</h4><ul class="contact-list"><li><a href="https://maps.app.goo.gl/CQ9kJdqJ7uKTg1127" target="_blank" rel="noopener"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0114 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></i><span>L19, 180 Lonsdale Street,<br>Melbourne VIC 3000</span></a></li><li><a href="tel:1300601871"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></svg></i><span>1300 601 871</span></a></li><li><a href="mailto:info@buildmarque.com.au"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5l8.5 6 8.5-6"/></svg></i><span>info@buildmarque.com.au</span></a></li></ul>
         <div class="socials">
           <a href="https://www.facebook.com/people/BuildMarque/100067384023327/" target="_blank" rel="noopener" aria-label="Facebook">{fb}</a>
           <a href="https://www.linkedin.com/company/buildmarqueinteriors" target="_blank" rel="noopener" aria-label="LinkedIn">{li}</a>
