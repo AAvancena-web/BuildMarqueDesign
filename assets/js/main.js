@@ -13,14 +13,17 @@
   const toggle = $('.menu-toggle');
   const nav = $('.site-header nav');
   if (toggle && nav) {
-    toggle.addEventListener('click', () => {
-      nav.classList.toggle('open');
-      document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
-    });
-    $$('a', nav).forEach(a => a.addEventListener('click', () => {
-      nav.classList.remove('open');
-      document.body.style.overflow = '';
-    }));
+    const setMenu = open => {
+      nav.classList.toggle('open', open);
+      toggle.classList.toggle('is-open', open);
+      toggle.setAttribute('aria-expanded', open);
+      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      header.classList.toggle('menu-open', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    };
+    toggle.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
+    $$('a', nav).forEach(a => a.addEventListener('click', () => setMenu(false)));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
   }
 
   // Reveal on scroll

@@ -929,3 +929,14 @@ footer .contact-list a:hover i { background: var(--brass); color: var(--ink); }
 .cta.center .h2 { margin: 18px auto 0; max-width: 20ch; }
 .cta.center .lead { color: rgba(255,255,255,.78); margin: 20px auto 0; max-width: 52ch; }
 .cta.center .cta-actions { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; margin-top: 34px; }
+
+/* Mobile menu toggle: hamburger -> X */
+.menu-toggle { position: relative; width: 44px; height: 44px; padding: 0; }
+.menu-toggle span { position: absolute; left: 10px; right: 10px; height: 2px; border-radius: 2px; background: #fff; transition: transform .35s var(--ease), opacity .25s, top .35s var(--ease); }
+.menu-toggle span:nth-child(1) { top: 14px; }
+.menu-toggle span:nth-child(2) { top: 21px; }
+.menu-toggle span:nth-child(3) { top: 28px; }
+.menu-toggle.is-open span:nth-child(1) { top: 21px; transform: rotate(45deg); }
+.menu-toggle.is-open span:nth-child(2) { opacity: 0; transform: scaleX(.3); }
+.menu-toggle.is-open span:nth-child(3) { top: 21px; transform: rotate(-45deg); }
+.site-header.menu-open { background: var(--ink); }

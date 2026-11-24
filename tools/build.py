@@ -9,7 +9,7 @@ from pathlib import Path
 from content import INDUSTRIES, PROJECTS, ALL_PROJECTS, FAQ_GENERAL, FAQ_ABOUT, FAQ_INDUSTRIES, U
 
 ROOT = Path(__file__).resolve().parent.parent
-V = "26"  # asset version (cache busting)
+V = "27"  # asset version (cache busting)
 e = html.escape
 
 ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>'
@@ -71,9 +71,7 @@ def header(active=""):
       <a class="phone" href="tel:1300601871"><small>Call us</small>1300 601 871</a>
       <a class="btn btn-primary" href="contact.html">Get A Quote</a>
     </div>
-    <button class="menu-toggle" aria-label="Open menu">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
-    </button>
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </header>
 '''
