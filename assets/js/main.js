@@ -1,0 +1,129 @@
+// BuildMarque redesign prototype — interactions
+(() => {
+  const $ = (s, el = document) => el.querySelector(s);
+  const $$ = (s, el = document) => [...el.querySelectorAll(s)];
+
+  // Header: solid background once the hero is scrolled past a little
+  const header = $('.site-header');
+  const onScroll = () => header && header.classList.toggle('scrolled', window.scrollY > 60);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  // Mobile menu
+  const toggle = $('.menu-toggle');
+  const nav = $('.site-header nav');
+  if (toggle && nav) {
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('open');
+      document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
+    });
+    $$('a', nav).forEach(a => a.addEventListener('click', () => {
+      nav.classList.remove('open');
+      document.body.style.overflow = '';
+    }));
+  }
+
+  // Reveal on scroll
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  $$('.reveal').forEach(el => io.observe(el));
+
+  // Count-up stats
+  const counters = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target, end = +el.dataset.count, suffix = el.dataset.suffix || '';
+      const t0 = performance.now(), dur = 1600;
+      const tick = t => {
+        const p = Math.min(1, (t - t0) / dur), v = Math.round(end * (1 - Math.pow(1 - p, 3)));
+        el.textContent = v + suffix;
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+      counters.unobserve(el);
+    });
+  }, { threshold: 0.6 });
+  $$('[data-count]').forEach(el => counters.observe(el));
+
+  // Drag-to-scroll showcase strip
+  $$('.strip').forEach(strip => {
+    let down = false, startX = 0, startLeft = 0;
+    strip.addEventListener('pointerdown', e => {
+      if (e.pointerType !== 'mouse') return;
+      down = true; startX = e.clientX; startLeft = strip.scrollLeft; strip.classList.add('dragging');
+    });
+    window.addEventListener('pointerup', () => { down = false; strip.classList.remove('dragging'); });
+    window.addEventListener('pointermove', e => { if (down) strip.scrollLeft = startLeft - (e.clientX - startX); });
+    const wrap = strip.closest('section');
+    const step = () => strip.clientWidth * 0.6;
+    wrap && $('[data-strip="prev"]', wrap)?.addEventListener('click', () => strip.scrollBy({ left: -step(), behavior: 'smooth' }));
+    wrap && $('[data-strip="next"]', wrap)?.addEventListener('click', () => strip.scrollBy({ left: step(), behavior: 'smooth' }));
+  });
+
+  // Project filters
+  const filterBtns = $$('.filters button');
+  filterBtns.forEach(btn => btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.toggle('on', b === btn));
+    const f = btn.dataset.filter;
+    $$('.p-card').forEach(card => card.classList.toggle('hide', f !== 'all' && card.dataset.sector !== f));
+  }));
+
+  // Gentle parallax on spotlight image
+  const para = $$('[data-parallax]');
+  if (para.length && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const run = () => {
+      para.forEach(img => {
+        const r = img.parentElement.getBoundingClientRect();
+        if (r.bottom < 0 || r.top > innerHeight) return;
+        const p = (r.top + r.height / 2 - innerHeight / 2) / innerHeight;
+        img.style.transform = `translateY(${p * -60 - 40}px)`;
+      });
+    };
+    run();
+    window.addEventListener('scroll', () => requestAnimationFrame(run), { passive: true });
+  }
+
+  // Film modal
+  const filmModal = $('#film');
+  if (filmModal) {
+    const v = $('video', filmModal);
+    const open = () => { filmModal.classList.add('open'); v.currentTime = 0; v.muted = false; v.play().catch(() => {}); };
+    const close = () => { filmModal.classList.remove('open'); v.pause(); };
+    $$('[data-film]').forEach(b => b.addEventListener('click', open));
+    $('.close', filmModal).addEventListener('click', close);
+    filmModal.addEventListener('click', e => { if (e.target === filmModal) close(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+  }
+
+  // Gallery lightbox
+  const lb = $('#lightbox');
+  if (lb) {
+    const items = $$('.gallery button');
+    const img = $('img', lb), count = $('.count', lb);
+    let i = 0;
+    const show = n => {
+      i = (n + items.length) % items.length;
+      img.src = items[i].dataset.full;
+      count.textContent = `${i + 1} / ${items.length}`;
+    };
+    items.forEach((b, n) => b.addEventListener('click', () => { show(n); lb.classList.add('open'); }));
+    $('.prev', lb).addEventListener('click', () => show(i - 1));
+    $('.next', lb).addEventListener('click', () => show(i + 1));
+    $('.close', lb).addEventListener('click', () => lb.classList.remove('open'));
+    lb.addEventListener('click', e => { if (e.target === lb) lb.classList.remove('open'); });
+    document.addEventListener('keydown', e => {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape') lb.classList.remove('open');
+      if (e.key === 'ArrowLeft') show(i - 1);
+      if (e.key === 'ArrowRight') show(i + 1);
+    });
+  }
+
+  // Prototype form: don't actually submit
+  $$('form.quote').forEach(f => f.addEventListener('submit', e => {
+    e.preventDefault();
+    const b = $('button', f);
+    b.textContent = 'Thanks — prototype only';
+  }));
+})();
