@@ -653,3 +653,33 @@ footer .base { margin-top: 60px; padding-top: 24px; border-top: 1px solid rgba(2
 .featured-copy dt { font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
 .featured-copy dd { margin: 4px 0 0; font-weight: 700; font-size: 15.5px; }
 @media (max-width: 1100px) { .featured-grid { grid-template-columns: 1fr; } }
+
+/* Nav dropdowns (match live site menu) */
+.site-header nav { align-items: center; }
+.dd { position: relative; }
+.dd > a { display: inline-flex; align-items: center; gap: 6px; }
+.dd .chev { width: 13px; height: 13px; transition: transform .3s var(--ease); }
+.dd:hover .chev { transform: rotate(180deg); }
+.dd-menu {
+  position: absolute; top: calc(100% + 14px); left: -16px; min-width: 230px; padding: 10px;
+  background: var(--white); border-radius: 12px; box-shadow: 0 22px 50px rgba(17,20,24,.2);
+  display: grid; opacity: 0; visibility: hidden; transform: translateY(8px);
+  transition: opacity .25s, transform .3s var(--ease), visibility .25s;
+}
+.dd-menu::before { content: ""; position: absolute; left: 0; right: 0; top: -16px; height: 16px; }
+.dd:hover .dd-menu, .dd:focus-within .dd-menu { opacity: 1; visibility: visible; transform: none; }
+.site-header nav .dd-menu a { color: var(--ink); padding: 9px 12px; border-radius: 8px; font-size: 14px; white-space: nowrap; }
+.site-header nav .dd-menu a::after { display: none; }
+.site-header nav .dd-menu a:hover { background: var(--paper); color: var(--navy); }
+
+/* Logos: two rows */
+.logos { padding: 70px 0 60px; }
+.logo-block + .logo-block { margin-top: 46px; }
+.marquee.rev { animation-direction: reverse; animation-duration: 45s; }
+
+@media (max-width: 1100px) {
+  .site-header nav.open { overflow-y: auto; align-items: flex-start; }
+  .site-header nav.open .dd-menu { position: static; opacity: 1; visibility: visible; transform: none; background: none; box-shadow: none; padding: 0 0 10px 4px; min-width: 0; }
+  .site-header nav.open .dd-menu a { color: rgba(255,255,255,.7); font-family: var(--sans); font-size: 16px; padding: 4px 0; }
+  .site-header nav.open .dd .chev { display: none; }
+}
