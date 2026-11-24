@@ -5,7 +5,7 @@ Static prototype of the redesigned **buildmarque.com.au**, for client review bef
 ## Pages
 - `index.html` — homepage: full-screen video hero with "Watch the film" modal, intro + stats, drag-to-scroll photo showcase, featured project spotlight, filterable project grid, sectors, process, curated reviews, client logos, enquiry form.
 - `project.html` — case study template (Melbourne Dental Group): hero, write-up, "The job in short" facts table, sticky enquiry box, full photo gallery with lightbox, client quote.
-- `projects.html` — All projects archive: numbered horizontal timeline (scroll or drag sideways) with sector filters.
+- `projects.html` — All projects: same equal-size card grid as the homepage, with sector filters (supports links like `projects.html#dental`).
 
 - Inner pages: `about.html`, `industries.html`, 9 industry pages (`medical-centres`, `dental-practices`, `corporate-offices`, `allied-health`, `radiology-fitouts`, `healthcare-fitouts`, `veterinary-fitouts`, `pharmacy-fitouts`, `gym-fitouts`), `faq.html`, `contact.html`.
 
@@ -18,7 +18,7 @@ Copy comes from the live site, shortened and lightly tidied; industry pages show
 - Full-height sector image panels that expand on hover — LPAS (lpas.com)
 - Split screens: sticky text beside scrolling photos (intro + process) — BCG Building Design (bcgbuildingdesign.com.au)
 - "The job in short" table + sticky enquiry box on case studies — DC Carpentry & Construction (dcspaces.co.uk)
-- Numbered project archive timeline — Archivio Garonzi (archivio.garonzi1925.com)
+- (Archive timeline idea from Archivio Garonzi was replaced by the homepage-style grid at client request)
 
 ## Notes for the WordPress rebuild
 - All photos and the hero video are loaded directly from the live site's media library — nothing new needs uploading for review.

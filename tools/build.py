@@ -6,10 +6,10 @@ import html
 import re
 from pathlib import Path
 
-from content import INDUSTRIES, PROJECTS, FAQ_GENERAL, FAQ_ABOUT, FAQ_INDUSTRIES, U
+from content import INDUSTRIES, PROJECTS, ALL_PROJECTS, FAQ_GENERAL, FAQ_ABOUT, FAQ_INDUSTRIES, U
 
 ROOT = Path(__file__).resolve().parent.parent
-V = "25"  # asset version (cache busting)
+V = "26"  # asset version (cache busting)
 e = html.escape
 
 ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>'
@@ -170,15 +170,13 @@ def faq_section(faqs, h2="Questions, <em>answered</em>.", lead="", img=U + "02/h
 
 def cta_band(h2="Have a project in mind? <em>Let’s talk.</em>", p="Tell us about your space. We’ll come back with a concept design and budget proposal.", img=U + "02/homepage-slider-banner-6-1.jpg"):
     return f'''
-<section class="cta">
+<section class="cta center">
   <img loading="lazy" src="{img}" alt="">
-  <div class="wrap" style="grid-template-columns:1fr auto;align-items:end">
-    <div>
-      <span class="eyebrow light">Start your project</span>
-      <h2 class="h2">{h2}</h2>
-      <p class="lead" style="color:rgba(255,255,255,.75);margin-top:18px">{e(p)}</p>
-    </div>
-    <div style="display:flex;gap:14px;flex-wrap:wrap">
+  <div class="wrap">
+    <span class="eyebrow light">Start your project</span>
+    <h2 class="h2">{h2}</h2>
+    <p class="lead">{e(p)}</p>
+    <div class="cta-actions">
       <a class="btn btn-primary" href="contact.html">Book A Free Consultation {ARROW}</a>
       <a class="btn btn-ghost" href="tel:1300601871">1300 601 871</a>
     </div>
@@ -187,12 +185,15 @@ def cta_band(h2="Have a project in mind? <em>Let’s talk.</em>", p="Tell us abo
 '''
 
 
+SECTOR_LABEL = dict(dental="Dental", medical="Medical", allied="Allied health", corporate="Corporate", opg="OPG &amp; plant rooms")
+
+
 def project_cards(items):
     out = []
     for n, s, img, link in items:
-        out.append(f'''      <a class="p-card reveal" href="{link or 'projects.html#' + s}">
+        out.append(f'''      <a class="p-card reveal" data-sector="{s}" href="{link or 'projects.html#' + s}">
         <div class="ph"><img loading="lazy" src="{U}{img}" alt="{e(n)}"></div>
-        <div class="p-meta"><h3>{e(n)}</h3><span>{dict(dental="Dental", medical="Medical", allied="Allied health", corporate="Corporate")[s]}</span></div>
+        <div class="p-meta"><h3>{n if "&amp;" in n else e(n)}</h3><span>{SECTOR_LABEL[s]}</span></div>
         <span class="arrow">{ARROW}</span>
       </a>''')
     return "\n".join(out)
@@ -544,9 +545,36 @@ def contact_page():
     write("contact.html", body)
 
 
+
+# ------------------------------------------------------------------ projects archive
+def projects_page():
+    tabs = [("all", "All projects"), ("dental", "Dental"), ("medical", "Medical"), ("allied", "Allied health"), ("corporate", "Corporate"), ("opg", "OPG &amp; plant rooms")]
+    t = "".join(f'<button{" class=\"on\"" if k == "all" else ""} data-filter="{k}">{v}</button>' for k, v in tabs)
+    body = (head("Projects | Healthcare & Commercial Fitouts", "Dental, medical, allied health and corporate fitouts designed and built by BuildMarque across Victoria.") + header("projects")
+            + page_hero(U + "05/Home_Banner_04.jpg", "Projects", "Projects that define <em>our</em> standard", "Every project below was designed and built by BuildMarque, many inside practices that stayed open throughout.", crumbs=(("Home", "index.html"), ("Projects", "")), buttons=False, short=True)
+            + f'''
+<section class="projects" id="work">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow reveal">All projects · <b data-count-shown>{len(ALL_PROJECTS)}</b> shown</span>
+        <h2 class="h2 reveal">Selected <em>work</em>.</h2>
+      </div>
+      <p class="lead reveal">Filter by sector to explore dental practices, medical centres, allied health clinics, offices and specialist rooms.</p>
+    </div>
+    <div class="filters" role="tablist">{t}</div>
+    <div class="project-grid">
+{project_cards(ALL_PROJECTS)}
+    </div>
+  </div>
+</section>
+''' + cta_band(h2="Your practice could be <em>next</em>.") + footer() + tail())
+    write("projects.html", body)
+
+
 # ------------------------------------------------------------------ sync existing pages
 def sync_existing():
-    for name, active in [("index.html", "home"), ("project.html", "projects"), ("projects.html", "projects")]:
+    for name, active in [("index.html", "home"), ("project.html", "projects")]:
         p = ROOT / name
         s = p.read_text()
         s = re.sub(r'<nav aria-label="Main">.*?</nav>', nav(active), s, count=1, flags=re.S)
@@ -576,4 +604,5 @@ if __name__ == "__main__":
     about_page()
     faq_page()
     contact_page()
+    projects_page()
     sync_existing()

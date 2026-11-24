@@ -62,12 +62,19 @@
   });
 
   // Project filters
-  const filterBtns = $$('.filters button');
+  const filterBtns = $$('.filters button[data-filter]');
+  const applyFilter = f => {
+    filterBtns.forEach(b => b.classList.toggle('on', b.dataset.filter === f));
+    let n = 0;
+    $$('.p-card').forEach(card => { const show = f === 'all' || card.dataset.sector === f; card.classList.toggle('hide', !show); if (show) n++; });
+    const cnt = $('[data-count-shown]'); if (cnt) cnt.textContent = n;
+  };
   filterBtns.forEach(btn => btn.addEventListener('click', () => {
-    filterBtns.forEach(b => b.classList.toggle('on', b === btn));
-    const f = btn.dataset.filter;
-    $$('.p-card').forEach(card => card.classList.toggle('hide', f !== 'all' && card.dataset.sector !== f));
+    applyFilter(btn.dataset.filter);
+    if ($('[data-count-shown]')) history.replaceState(null, '', btn.dataset.filter === 'all' ? location.pathname : '#' + btn.dataset.filter);
   }));
+  const h0 = location.hash.slice(1);
+  if (h0 && filterBtns.some(b => b.dataset.filter === h0)) applyFilter(h0);
 
   // Gentle parallax on spotlight image
   const para = $$('[data-parallax]');
