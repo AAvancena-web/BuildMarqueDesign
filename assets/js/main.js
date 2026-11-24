@@ -19,6 +19,7 @@
       toggle.setAttribute('aria-expanded', open);
       toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
       header.classList.toggle('menu-open', open);
+      document.body.classList.toggle('menu-is-open', open);
       document.body.style.overflow = open ? 'hidden' : '';
     };
     toggle.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
