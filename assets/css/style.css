@@ -735,3 +735,7 @@ form.quote .flabel { font-size: 12px; font-weight: 700; letter-spacing: .12em; t
 .cs-list li.sel { color: var(--navy); font-weight: 700; }
 .cs-list li svg { width: 16px; height: 16px; color: var(--brass); opacity: 0; }
 .cs-list li.sel svg { opacity: 1; }
+/* Logo images already include their own frame, so tiles are borderless */
+.logo-tile { background: none; border: 0; padding: 0; border-radius: 0; }
+.logo-tile img { width: 100%; height: 100%; object-fit: contain; }
+.logo-tile:hover { box-shadow: none; }
