@@ -1086,3 +1086,11 @@ footer .contact-list a:hover i { background: var(--brass); color: var(--ink); }
   .faq-side > .eyebrow, .faq-side > .text-link { align-self: center; }
   .faq-side > .h2, .faq-side > .lead { text-align: center; }
 }
+
+/* Paired CTAs: always equal width (both match the wider button) */
+.hero-actions, .cta-actions { display: inline-grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 14px; flex-wrap: nowrap; }
+.hero-actions .btn, .cta-actions .btn { justify-content: center; }
+@media (max-width: 680px) {
+  .hero-actions, .cta-actions { grid-auto-flow: row; width: 100%; max-width: 340px; margin-left: auto; margin-right: auto; }
+  .hero-content .hero-actions { display: grid; }
+}
