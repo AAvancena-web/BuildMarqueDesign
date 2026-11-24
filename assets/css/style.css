@@ -1031,3 +1031,41 @@ footer .contact-list a:hover i { background: var(--brass); color: var(--ink); }
   .featured-copy > .tag, .featured-copy > .h2, .featured-copy > blockquote, .featured-copy > cite { text-align: center; }
   .featured-copy > dl { text-align: center; }
 }
+
+/* Process on stacked layouts: step text, then its image, alternating */
+@media (max-width: 1100px) {
+  .process.v2 .split { display: flex; flex-direction: column; padding: 90px var(--pad) 60px; }
+  .process.v2 .split-sticky, .process.v2 .split-media, .process.v2 .steps { display: contents; }
+  .process.v2 .split-sticky > .eyebrow { order: 1; align-self: flex-start; }
+  .process.v2 .split-sticky > .h2 { order: 2; margin-bottom: 26px; }
+  .process.v2 .steps li { opacity: 1; cursor: default; border-top: 1px solid var(--line); border-bottom: 0; padding: 22px 0 18px; }
+  .process.v2 .steps li p { max-height: none; margin-top: 8px; }
+  .process.v2 .steps li[data-step="0"] { order: 3; } .process.v2 figure[data-step="0"] { order: 4; }
+  .process.v2 .steps li[data-step="1"] { order: 5; } .process.v2 figure[data-step="1"] { order: 6; }
+  .process.v2 .steps li[data-step="2"] { order: 7; } .process.v2 figure[data-step="2"] { order: 8; }
+  .process.v2 .steps li[data-step="3"] { order: 9; } .process.v2 figure[data-step="3"] { order: 10; }
+  .process.v2 .split-media figure { height: 46vh; margin-bottom: 26px; }
+  .process.v2 .split-media figcaption { display: none; }
+}
+@media (max-width: 680px) {
+  .process.v2 .split-sticky > .eyebrow { align-self: center; }
+  .process.v2 .split-sticky > .h2 { text-align: center; }
+  .process.v2 .steps li .row { justify-content: center; }
+  .process.v2 .steps li h3, .process.v2 .steps li p { text-align: center; }
+  .process.v2 .steps li p { padding-left: 0; }
+  .process.v2 .steps li .n { width: auto; }
+}
+
+/* Google reviews on mobile: full-width header + badge, static list */
+@media (max-width: 680px) {
+  .greviews-top { flex-direction: column; align-items: stretch; gap: 24px; margin-bottom: 30px; }
+  .greviews-top > div:first-child { text-align: center; }
+  .gbadge { width: 100%; padding: 26px 20px; }
+  .greviews { padding-bottom: 80px; }
+  .rv-row, .rv-row.rev { animation: none; width: auto; flex-direction: column; gap: 14px; padding: 0 var(--pad); }
+  .rv-row + .rv-row { margin-top: 14px; }
+  .rv[aria-hidden="true"] { display: none; }
+  .rv { width: 100%; }
+  .rv:hover { transform: none; box-shadow: none; }
+  .rv p { -webkit-line-clamp: unset; display: block; }
+}
