@@ -683,3 +683,24 @@ footer .base { margin-top: 60px; padding-top: 24px; border-top: 1px solid rgba(2
   .site-header nav.open .dd-menu a { color: rgba(255,255,255,.7); font-family: var(--sans); font-size: 16px; padding: 4px 0; }
   .site-header nav.open .dd .chev { display: none; }
 }
+
+/* Logos: static grids (all logos visible) */
+.logos { padding: clamp(80px, 9vw, 120px) 0; }
+.logo-head { display: flex; justify-content: center; margin-bottom: 28px; }
+.logo-block + .logo-block { margin-top: clamp(56px, 6vw, 80px); }
+.logo-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
+.logo-tile {
+  flex: 0 0 calc((100% - 5 * 14px) / 6); height: 92px; display: grid; place-items: center;
+  background: var(--white); border: 1px solid var(--line); border-radius: 10px; padding: 12px 18px;
+  transition: transform .35s var(--ease), box-shadow .35s, border-color .35s;
+}
+.logo-grid.clients .logo-tile { flex-basis: calc((100% - 6 * 14px) / 7); height: 84px; }
+.logo-tile img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; }
+.logo-tile:hover { transform: translateY(-3px); box-shadow: 0 12px 26px rgba(17,20,24,.08); border-color: transparent; }
+@media (max-width: 1100px) {
+  .logo-tile, .logo-grid.clients .logo-tile { flex-basis: calc((100% - 3 * 14px) / 4); }
+}
+@media (max-width: 680px) {
+  .logo-tile, .logo-grid.clients .logo-tile { flex-basis: calc((100% - 2 * 10px) / 3); height: 70px; padding: 8px 10px; }
+  .logo-grid { gap: 10px; }
+}
