@@ -143,6 +143,7 @@
           heroContent.style.transform = `translateY(${p * -60}px)`;
         }
       }
+      const cue = $('.scroll-cue'); if (cue) cue.style.opacity = String(1 - p * 3);
       if (mini) {
         const nearEnd = window.scrollY + innerHeight > document.body.scrollHeight - 260;
         mini.classList.toggle('show', p > 0.85 && !nearEnd);

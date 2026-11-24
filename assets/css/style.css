@@ -139,7 +139,7 @@ h1, h2, h3 { font-weight: 400; margin: 0; }
 .play-film svg { width: 18px; height: 18px; margin-left: 3px; }
 .badges { display: flex; gap: 22px; align-items: center; opacity: .85; }
 .badges img { height: 38px; width: auto; }
-.scroll-cue {
+.scroll-cue { transition: opacity .3s;
   position: absolute; z-index: 2; left: 50%; bottom: 22px; transform: translateX(-50%);
   width: 1px; height: 46px; background: rgba(255,255,255,.25); overflow: hidden;
 }
@@ -431,7 +431,7 @@ footer .base { margin-top: 60px; padding-top: 24px; border-top: 1px solid rgba(2
 .hero-content { will-change: opacity, transform; }
 
 .mini-film {
-  position: fixed; left: 24px; bottom: 24px; z-index: 40; width: 240px; aspect-ratio: 16 / 9;
+  position: fixed; right: 24px; bottom: 24px; z-index: 40; width: 240px; aspect-ratio: 16 / 9;
   border-radius: 6px; overflow: hidden; border: 0; padding: 0; background: var(--ink);
   box-shadow: 0 18px 40px rgba(0,0,0,.28);
   opacity: 0; transform: translateY(20px) scale(.92); pointer-events: none;
@@ -495,7 +495,7 @@ footer .base { margin-top: 60px; padding-top: 24px; border-top: 1px solid rgba(2
 .panel::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(7,29,57,.92) 0%, rgba(7,29,57,.25) 55%, rgba(7,29,57,.1) 100%); transition: background .6s; }
 .panel .inner { position: absolute; z-index: 2; left: 0; right: 0; bottom: 0; padding: 30px; }
 .panel .num { font-size: 13px; font-weight: 700; color: var(--brass); letter-spacing: .1em; }
-.panel h3 { font-family: var(--display); font-size: clamp(30px, 2.8vw, 48px); line-height: 1; margin-top: 10px; white-space: nowrap; }
+.panel h3 { font-family: var(--display); font-size: clamp(28px, 2.5vw, 44px); line-height: 1; margin-top: 10px; }
 .panel p { margin: 0; max-width: 36ch; color: rgba(255,255,255,.78); font-size: 15.5px; max-height: 0; opacity: 0; overflow: hidden; transition: all .6s var(--ease); }
 .panel .go { display: inline-flex; gap: 8px; align-items: center; font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin-top: 0; max-height: 0; opacity: 0; overflow: hidden; transition: all .6s var(--ease); }
 .panels:hover .panel { flex: .8; }
@@ -558,7 +558,7 @@ footer .base { margin-top: 60px; padding-top: 24px; border-top: 1px solid rgba(2
   .panel, .panels:hover .panel, .panels .panel:hover { flex: none; height: 52vh; }
   .panel p, .panel .go { max-height: 120px; opacity: 1; margin-top: 12px; }
   .enquire { position: static; }
-  .mini-film { width: 170px; left: 14px; bottom: 14px; }
+  .mini-film { width: 170px; right: 14px; bottom: 14px; }
 }
 .site-header.solid { background: rgba(17, 20, 24, .94); padding: 12px 0; }
 .site-header.solid .logo img { height: 36px; }
