@@ -9,7 +9,7 @@ from pathlib import Path
 from content import INDUSTRIES, PROJECTS, FAQ_GENERAL, FAQ_ABOUT, FAQ_INDUSTRIES, U
 
 ROOT = Path(__file__).resolve().parent.parent
-V = "23"  # asset version (cache busting)
+V = "24"  # asset version (cache busting)
 e = html.escape
 
 ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>'
@@ -89,14 +89,20 @@ def footer():
       <div>
         <img class="flogo" src="{LOGO}" alt="BuildMarque">
         <p style="max-width:40ch">BuildMarque is led by a multidisciplinary team of architects, project managers, and site managers who bring deep technical knowledge and hands-on delivery experience to every project.</p>
+        <div class="fbadges">
+          <img src="https://www.buildmarque.com.au/wp-content/uploads/2026/03/logo-.png.webp" alt="Building and Plumbing Commission">
+          <img src="https://www.buildmarque.com.au/wp-content/uploads/2026/01/banner-logo-2.png.webp" alt="ADIA member">
+          <img src="https://www.buildmarque.com.au/wp-content/uploads/2026/01/banner-logo-3.png.webp" alt="Master Builders Victoria">
+          <img src="https://www.buildmarque.com.au/wp-content/uploads/2026/01/banner-logo-4.png.webp" alt="Registered Building Practitioner">
+        </div>
+      </div>
+      <div><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="industries.html">Industries</a></li><li><a href="projects.html">Projects</a></li><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact Us</a></li><li><a href="https://www.buildmarque.com.au/user-sitemap/" target="_blank" rel="noopener">User Sitemap</a></li></ul></div>
+      <div><h4>Get In Touch</h4><ul><li><a href="https://maps.app.goo.gl/CQ9kJdqJ7uKTg1127" target="_blank" rel="noopener">L19, 180 Lonsdale Street,<br>Melbourne VIC 3000</a></li><li><a href="tel:1300601871">1300 601 871</a></li><li><a href="mailto:info@buildmarque.com.au">info@buildmarque.com.au</a></li></ul>
         <div class="socials">
           <a href="https://www.facebook.com/people/BuildMarque/100067384023327/" target="_blank" rel="noopener" aria-label="Facebook">{fb}</a>
           <a href="https://www.linkedin.com/company/buildmarqueinteriors" target="_blank" rel="noopener" aria-label="LinkedIn">{li}</a>
           <a href="https://www.instagram.com/buildmarque.ltd/" target="_blank" rel="noopener" aria-label="Instagram">{ig}</a>
-        </div>
-      </div>
-      <div><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="industries.html">Industries</a></li><li><a href="projects.html">Projects</a></li><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact Us</a></li><li><a href="https://www.buildmarque.com.au/user-sitemap/" target="_blank" rel="noopener">User Sitemap</a></li></ul></div>
-      <div><h4>Get In Touch</h4><ul><li><a href="https://maps.app.goo.gl/CQ9kJdqJ7uKTg1127" target="_blank" rel="noopener">L19, 180 Lonsdale Street,<br>Melbourne VIC 3000</a></li><li><a href="tel:1300601871">1300 601 871</a></li><li><a href="mailto:info@buildmarque.com.au">info@buildmarque.com.au</a></li></ul></div>
+        </div></div>
     </div>
     <div class="base"><span>Copyright © 2026 - BuildMarque. All rights reserved.</span><span>Designed By <a href="https://www.digitalmovement.com.au/" target="_blank" rel="noopener">Digital Movement</a></span></div>
   </div>
