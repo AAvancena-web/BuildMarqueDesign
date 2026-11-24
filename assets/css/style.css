@@ -276,8 +276,8 @@ h1, h2, h3 { font-weight: 400; margin: 0; }
 .logos { padding: 70px 0; background: var(--white); overflow: hidden; }
 .logos p { text-align: center; margin: 0 0 30px; }
 .marquee { display: flex; width: max-content; animation: marquee 60s linear infinite; }
-.marquee img { height: 70px; width: auto; margin: 0 26px; filter: grayscale(1); opacity: .7; transition: all .3s; }
-.marquee img:hover { filter: none; opacity: 1; }
+.marquee img { height: 70px; width: auto; margin: 0 26px; transition: transform .3s; }
+.marquee img:hover { transform: scale(1.06); }
 @keyframes marquee { to { transform: translateX(-50%); } }
 
 /* CTA / contact */
