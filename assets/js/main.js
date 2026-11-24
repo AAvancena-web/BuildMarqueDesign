@@ -124,7 +124,7 @@
   $$('form.quote').forEach(f => f.addEventListener('submit', e => {
     e.preventDefault();
     const b = $('button', f);
-    b.textContent = 'Thanks — prototype only';
+    b.textContent = 'Thanks! Prototype Only';
   }));
 
   // ---------- v2 ----------
@@ -262,4 +262,24 @@ document.querySelectorAll('.faq-item button').forEach(btn => {
     render();
   });
   document.addEventListener('click', e => all.forEach(w => { if (!w.contains(e.target)) w.classList.remove('open'); }));
+})();
+
+// Scroll-to-top button with scroll progress ring
+(() => {
+  const btn = document.createElement('button');
+  btn.className = 'to-top'; btn.setAttribute('aria-label', 'Scroll to top');
+  btn.innerHTML = '<svg class="ring" viewBox="0 0 56 56"><circle cx="28" cy="28" r="26"/><circle class="bar" cx="28" cy="28" r="26"/></svg><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M6 11l6-6 6 6"/></svg>';
+  document.body.appendChild(btn);
+  const bar = btn.querySelector('.bar'), C = 2 * Math.PI * 26;
+  bar.style.strokeDasharray = C;
+  const upd = () => {
+    const max = document.documentElement.scrollHeight - innerHeight;
+    const p = max > 0 ? scrollY / max : 0;
+    bar.style.strokeDashoffset = C * (1 - p);
+    btn.classList.toggle('show', scrollY > innerHeight * 0.6);
+  };
+  upd();
+  window.addEventListener('scroll', () => requestAnimationFrame(upd), { passive: true });
+  window.addEventListener('resize', upd);
+  btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 })();

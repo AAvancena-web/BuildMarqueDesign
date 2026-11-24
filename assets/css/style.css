@@ -741,3 +741,22 @@ form.quote .flabel { font-size: 12px; font-weight: 700; letter-spacing: .12em; t
 .logo-tile:hover { box-shadow: none; }
 /* Review avatar initials: keep white (overrides .rv .who span) */
 .rv .who .av { color: #fff; font-size: 17px; font-weight: 700; }
+
+/* Scroll to top */
+.to-top {
+  position: fixed; right: 24px; bottom: 24px; z-index: 45; width: 56px; height: 56px; padding: 0; border: 0;
+  border-radius: 50%; background: var(--ink); color: #fff; display: grid; place-items: center;
+  box-shadow: 0 12px 28px rgba(17,20,24,.25);
+  opacity: 0; visibility: hidden; transform: translateY(16px) scale(.9);
+  transition: opacity .4s var(--ease), transform .4s var(--ease), visibility .4s, background .3s;
+}
+.to-top.show { opacity: 1; visibility: visible; transform: none; }
+.to-top:hover { background: var(--navy); }
+.to-top .ring { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(-90deg); }
+.to-top .ring circle { fill: none; stroke-width: 2.5; stroke: rgba(255,255,255,.15); }
+.to-top .ring .bar { stroke: var(--brass); stroke-linecap: round; transition: stroke-dashoffset .15s linear; }
+.to-top .arrow { width: 18px; height: 18px; position: relative; transition: transform .35s var(--ease); }
+.to-top:hover .arrow { transform: translateY(-3px); }
+.to-top:hover .arrow { animation: bob .9s var(--ease) infinite alternate; }
+@keyframes bob { from { transform: translateY(1px); } to { transform: translateY(-3px); } }
+@media (max-width: 680px) { .to-top { right: 14px; bottom: 14px; width: 48px; height: 48px; } }
