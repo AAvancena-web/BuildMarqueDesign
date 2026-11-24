@@ -209,3 +209,57 @@ document.querySelectorAll('.faq-item button').forEach(btn => {
     if (open) { item.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); }
   });
 });
+
+// Custom styled dropdowns for the quote form
+(() => {
+  const chev = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>';
+  const tick = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+  const all = [];
+  document.querySelectorAll('form.quote select').forEach(sel => {
+    const wrap = document.createElement('div');
+    wrap.className = 'cselect';
+    sel.parentNode.insertBefore(wrap, sel);
+    wrap.appendChild(sel);
+    sel.tabIndex = -1;
+    const btn = document.createElement('button');
+    btn.type = 'button'; btn.className = 'cs-btn';
+    btn.setAttribute('aria-haspopup', 'listbox'); btn.setAttribute('aria-expanded', 'false');
+    const label = wrap.parentElement.querySelector('.flabel');
+    if (label) btn.setAttribute('aria-label', label.textContent);
+    const list = document.createElement('ul');
+    list.className = 'cs-list'; list.setAttribute('role', 'listbox');
+    [...sel.options].forEach((o, i) => {
+      const li = document.createElement('li');
+      li.setAttribute('role', 'option'); li.dataset.i = i;
+      li.innerHTML = `<span>${o.text}</span>${tick}`;
+      list.appendChild(li);
+    });
+    wrap.append(btn, list);
+    let focus = sel.selectedIndex;
+    const items = [...list.children];
+    const render = () => {
+      btn.innerHTML = `<span>${sel.options[sel.selectedIndex].text}</span>${chev}`;
+      items.forEach((li, i) => { li.classList.toggle('sel', i === sel.selectedIndex); li.setAttribute('aria-selected', i === sel.selectedIndex); li.classList.toggle('focus', i === focus); });
+    };
+    const open = v => {
+      all.forEach(a => a !== wrap && a.classList.remove('open'));
+      wrap.classList.toggle('open', v); btn.setAttribute('aria-expanded', v);
+      focus = sel.selectedIndex; render();
+    };
+    const choose = i => { sel.selectedIndex = i; sel.dispatchEvent(new Event('change', { bubbles: true })); open(false); btn.focus(); };
+    btn.addEventListener('click', () => open(!wrap.classList.contains('open')));
+    items.forEach((li, i) => li.addEventListener('click', () => choose(i)));
+    btn.addEventListener('keydown', e => {
+      const isOpen = wrap.classList.contains('open');
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        if (!isOpen) return open(true);
+        focus = (focus + (e.key === 'ArrowDown' ? 1 : -1) + items.length) % items.length; render();
+      } else if ((e.key === 'Enter' || e.key === ' ') && isOpen) { e.preventDefault(); choose(focus); }
+      else if (e.key === 'Escape') open(false);
+    });
+    all.push(wrap);
+    render();
+  });
+  document.addEventListener('click', e => all.forEach(w => { if (!w.contains(e.target)) w.classList.remove('open'); }));
+})();

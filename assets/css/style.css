@@ -704,3 +704,34 @@ footer .base { margin-top: 60px; padding-top: 24px; border-top: 1px solid rgba(2
   .logo-tile, .logo-grid.clients .logo-tile { flex-basis: calc((100% - 2 * 10px) / 3); height: 70px; padding: 8px 10px; }
   .logo-grid { gap: 10px; }
 }
+
+/* Custom select (quote form) */
+form.quote .field { display: grid; gap: 6px; }
+form.quote .flabel { font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.65); }
+.cselect { position: relative; }
+.cselect select { position: absolute; opacity: 0; pointer-events: none; width: 1px; height: 1px; }
+.cs-btn {
+  width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  background: transparent; border: 0; border-bottom: 1px solid rgba(255,255,255,.35); color: #fff;
+  padding: 10px 0; font: inherit; font-size: 16px; text-align: left; transition: border-color .3s;
+}
+.cs-btn svg { width: 16px; height: 16px; transition: transform .35s var(--ease); opacity: .8; }
+.cselect.open .cs-btn, .cs-btn:focus-visible { border-color: var(--brass); outline: none; }
+.cselect.open .cs-btn svg { transform: rotate(180deg); }
+.cs-list {
+  position: absolute; z-index: 30; top: calc(100% + 10px); left: 0; right: 0; min-width: 220px;
+  margin: 0; padding: 8px; list-style: none; background: var(--white); border-radius: 14px;
+  box-shadow: 0 24px 60px rgba(0,0,0,.35);
+  opacity: 0; visibility: hidden; transform: translateY(-6px) scale(.98); transform-origin: top;
+  transition: opacity .22s, transform .3s var(--ease), visibility .22s;
+}
+.cselect.open .cs-list { opacity: 1; visibility: visible; transform: none; }
+.cs-list li {
+  display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  padding: 12px 14px; border-radius: 9px; color: var(--ink); font-size: 15.5px; font-weight: 500; cursor: pointer;
+  transition: background .2s, color .2s;
+}
+.cs-list li:hover, .cs-list li.focus { background: var(--paper); }
+.cs-list li.sel { color: var(--navy); font-weight: 700; }
+.cs-list li svg { width: 16px; height: 16px; color: var(--brass); opacity: 0; }
+.cs-list li.sel svg { opacity: 1; }
