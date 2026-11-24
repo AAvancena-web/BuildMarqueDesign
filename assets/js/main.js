@@ -126,4 +126,80 @@
     const b = $('button', f);
     b.textContent = 'Thanks — prototype only';
   }));
+
+  // ---------- v2 ----------
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Hero video shrinks into a framed card as you scroll, then a mini player takes over
+  const hero = $('.hero'), heroMedia = $('.hero-media'), heroContent = $('.hero-content'), mini = $('.mini-film');
+  if (hero && heroMedia) {
+    const run = () => {
+      const p = Math.min(1, Math.max(0, window.scrollY / hero.offsetHeight));
+      if (!reduce) {
+        const inset = p * 7;
+        heroMedia.style.clipPath = `inset(${inset}% ${inset}% ${inset}% ${inset}% round ${p * 22}px)`;
+        if (heroContent) {
+          heroContent.style.opacity = String(1 - p * 1.6);
+          heroContent.style.transform = `translateY(${p * -60}px)`;
+        }
+      }
+      if (mini) {
+        const nearEnd = window.scrollY + innerHeight > document.body.scrollHeight - 260;
+        mini.classList.toggle('show', p > 0.85 && !nearEnd);
+      }
+    };
+    run();
+    window.addEventListener('scroll', () => requestAnimationFrame(run), { passive: true });
+  }
+
+  // Process: highlight the step whose image is in view; click a step to jump to its image
+  const stepItems = $$('.steps li');
+  if (stepItems.length) {
+    const figs = $$('.process .split-media figure');
+    const sio = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const n = e.target.dataset.step;
+        stepItems.forEach(li => li.classList.toggle('on', li.dataset.step === n));
+      });
+    }, { rootMargin: '-45% 0px -45% 0px' });
+    figs.forEach(f => sio.observe(f));
+    stepItems.forEach(li => li.addEventListener('click', () => {
+      const f = figs.find(x => x.dataset.step === li.dataset.step);
+      if (f) window.scrollTo({ top: f.getBoundingClientRect().top + scrollY - innerHeight * 0.04, behavior: 'smooth' });
+    }));
+  }
+
+  // All projects timeline: wheel scrolls sideways, drag, progress bar, filters (+ #hash)
+  const tl = $('.timeline');
+  if (tl) {
+    tl.addEventListener('wheel', e => {
+      if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+        const atStart = tl.scrollLeft <= 0 && e.deltaY < 0;
+        const atEnd = tl.scrollLeft + tl.clientWidth >= tl.scrollWidth - 1 && e.deltaY > 0;
+        if (!atStart && !atEnd) { e.preventDefault(); tl.scrollLeft += e.deltaY; }
+      }
+    }, { passive: false });
+    let down = false, sx = 0, sl = 0, moved = false;
+    tl.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse') return; down = true; moved = false; sx = e.clientX; sl = tl.scrollLeft; });
+    window.addEventListener('pointermove', e => { if (!down) return; if (Math.abs(e.clientX - sx) > 4) { moved = true; tl.classList.add('dragging'); } tl.scrollLeft = sl - (e.clientX - sx); });
+    window.addEventListener('pointerup', () => { down = false; tl.classList.remove('dragging'); });
+    tl.addEventListener('click', e => { if (moved) { e.preventDefault(); moved = false; } }, true);
+    const bar = $('.progress i');
+    const upd = () => { if (bar) bar.style.width = (tl.scrollLeft / Math.max(1, tl.scrollWidth - tl.clientWidth) * 100) + '%'; };
+    tl.addEventListener('scroll', upd, { passive: true }); upd();
+
+    const btns = $$('.index-head .filters button');
+    const count = $('[data-count-shown]');
+    const apply = f => {
+      btns.forEach(b => b.classList.toggle('on', b.dataset.filter === f));
+      let n = 0;
+      $$('.col', tl).forEach(c => { const show = f === 'all' || c.dataset.sector === f; c.classList.toggle('hide', !show); if (show) n++; });
+      if (count) count.textContent = n;
+      tl.scrollLeft = 0; upd();
+    };
+    btns.forEach(b => b.addEventListener('click', () => { apply(b.dataset.filter); history.replaceState(null, '', b.dataset.filter === 'all' ? location.pathname : '#' + b.dataset.filter); }));
+    const hash = location.hash.slice(1);
+    if (hash && btns.some(b => b.dataset.filter === hash)) apply(hash);
+  }
 })();
