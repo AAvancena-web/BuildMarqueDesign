@@ -9,7 +9,7 @@ from pathlib import Path
 from content import INDUSTRIES, PROJECTS, ALL_PROJECTS, FAQ_GENERAL, FAQ_ABOUT, FAQ_INDUSTRIES, U
 
 ROOT = Path(__file__).resolve().parent.parent
-V = "31"  # asset version (cache busting)
+V = "32"  # asset version (cache busting)
 e = html.escape
 
 ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>'
@@ -132,7 +132,7 @@ def page_hero(img, eyebrow, h1, lead="", crumbs=(), buttons=True, short=False):
 '''
 
 
-def faq_items(faqs, start_open=True, cat=None):
+def faq_items(faqs, start_open=False, cat=None):
     out = []
     for i, (q, a) in enumerate(faqs):
         op = start_open and i == 0
@@ -461,7 +461,7 @@ def faq_page():
     for k, t, fs in groups:
         for q, a in fs:
             n += 1
-            op = n == 1
+            op = False
             items.append(f'''        <div class="faq-item{' open' if op else ''}" data-cat="{k}">
           <button aria-expanded="{'true' if op else 'false'}"><span><span class="n">{n:02d}</span>{e(q)}</span><span class="pm">{PLUS}</span></button>
           <div class="ans"><div>{''.join(f'<p>{e(x)}</p>' for x in a)}</div></div>

@@ -1069,3 +1069,20 @@ footer .contact-list a:hover i { background: var(--brass); color: var(--ink); }
   .rv:hover { transform: none; box-shadow: none; }
   .rv p { -webkit-line-clamp: unset; display: block; }
 }
+
+/* FAQ on stacked layouts: questions straight after the intro, help card after */
+@media (max-width: 1100px) {
+  .faq-grid { display: flex; flex-direction: column; gap: 0; }
+  .faq-side { display: contents; }
+  .faq-side > .eyebrow { order: 1; align-self: flex-start; }
+  .faq-side > .h2 { order: 2; margin: 16px 0 18px; }
+  .faq-side > .lead { order: 3; margin-bottom: 30px; }
+  .faq-side > .faq-tabs { order: 3; margin-bottom: 26px; }
+  .faq-list { order: 4; width: 100%; }
+  .faq-side > .faq-card { order: 5; margin-top: 40px; width: 100%; }
+  .faq-side > .text-link { order: 6; align-self: flex-start; }
+}
+@media (max-width: 680px) {
+  .faq-side > .eyebrow, .faq-side > .text-link { align-self: center; }
+  .faq-side > .h2, .faq-side > .lead { text-align: center; }
+}
