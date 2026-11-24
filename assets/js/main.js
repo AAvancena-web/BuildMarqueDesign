@@ -130,8 +130,8 @@
   // ---------- v2 ----------
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Hero video shrinks into a framed card as you scroll, then a mini player takes over
-  const hero = $('.hero'), heroMedia = $('.hero-media'), heroContent = $('.hero-content'), mini = $('.mini-film');
+  // Hero video shrinks into a framed card as you scroll
+  const hero = $('.hero'), heroMedia = $('.hero-media'), heroContent = $('.hero-content');
   if (hero && heroMedia) {
     const run = () => {
       const p = Math.min(1, Math.max(0, window.scrollY / hero.offsetHeight));
@@ -144,10 +144,6 @@
         }
       }
       const cue = $('.scroll-cue'); if (cue) cue.style.opacity = String(1 - p * 3);
-      if (mini) {
-        const nearEnd = window.scrollY + innerHeight > document.body.scrollHeight - 260;
-        mini.classList.toggle('show', p > 0.85 && !nearEnd);
-      }
     };
     run();
     window.addEventListener('scroll', () => requestAnimationFrame(run), { passive: true });

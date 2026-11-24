@@ -44,7 +44,6 @@ button { font: inherit; cursor: pointer; }
   font-size: 12px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
   color: var(--muted);
 }
-.eyebrow::before { content: ""; width: 28px; height: 1px; background: currentColor; }
 .eyebrow.light { color: rgba(255,255,255,.75); }
 
 h1, h2, h3 { font-weight: 400; margin: 0; }
@@ -417,7 +416,7 @@ footer .base { margin-top: 60px; padding-top: 24px; border-top: 1px solid rgba(2
    v2 — Awwwards-inspired additions
    ========================================================= */
 
-/* 1. Hero media shrinks on scroll (PDA) + mini film player */
+/* 1. Hero media shrinks on scroll (PDA) */
 .hero-media { position: absolute; inset: 0; will-change: clip-path; }
 .hero-media video, .hero-media .hero-poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .hero-media::after {
@@ -430,23 +429,6 @@ footer .base { margin-top: 60px; padding-top: 24px; border-top: 1px solid rgba(2
 .hero::after { display: none; }
 .hero-content { will-change: opacity, transform; }
 
-.mini-film {
-  position: fixed; right: 24px; bottom: 24px; z-index: 40; width: 240px; aspect-ratio: 16 / 9;
-  border-radius: 6px; overflow: hidden; border: 0; padding: 0; background: var(--ink);
-  box-shadow: 0 18px 40px rgba(0,0,0,.28);
-  opacity: 0; transform: translateY(20px) scale(.92); pointer-events: none;
-  transition: opacity .5s var(--ease), transform .5s var(--ease);
-}
-.mini-film.show { opacity: 1; transform: none; pointer-events: auto; }
-.mini-film video { width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--ease); }
-.mini-film:hover video { transform: scale(1.06); }
-.mini-film .label {
-  position: absolute; inset: auto 0 0 0; display: flex; align-items: center; gap: 10px; padding: 10px 12px;
-  color: #fff; font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
-  background: linear-gradient(0deg, rgba(0,0,0,.65), transparent);
-}
-.mini-film .label i { width: 26px; height: 26px; border-radius: 50%; background: var(--brass); display: grid; place-items: center; color: var(--ink); }
-.mini-film .label svg { width: 10px; height: 10px; margin-left: 2px; }
 
 /* 2. Split screens (BCG) */
 .split { display: grid; grid-template-columns: 1fr 1fr; }
@@ -558,7 +540,6 @@ footer .base { margin-top: 60px; padding-top: 24px; border-top: 1px solid rgba(2
   .panel, .panels:hover .panel, .panels .panel:hover { flex: none; height: 52vh; }
   .panel p, .panel .go { max-height: 120px; opacity: 1; margin-top: 12px; }
   .enquire { position: static; }
-  .mini-film { width: 170px; right: 14px; bottom: 14px; }
 }
 .site-header.solid { background: rgba(17, 20, 24, .94); padding: 12px 0; }
 .site-header.solid .logo img { height: 36px; }

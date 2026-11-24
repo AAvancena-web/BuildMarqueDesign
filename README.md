@@ -8,7 +8,7 @@ Static prototype of the redesigned **buildmarque.com.au**, for client review bef
 - `projects.html` — All projects archive: numbered horizontal timeline (scroll or drag sideways) with sector filters.
 
 ## Inspiration (Awwwards)
-- Hero video that shrinks as you scroll, then lives on as a mini "Watch the film" player — PDA Architecture (pda.archi)
+- Hero video that shrinks into a framed card as you scroll — PDA Architecture (pda.archi)
 - Full-height sector image panels that expand on hover — LPAS (lpas.com)
 - Split screens: sticky text beside scrolling photos (intro + process) — BCG Building Design (bcgbuildingdesign.com.au)
 - "The job in short" table + sticky enquiry box on case studies — DC Carpentry & Construction (dcspaces.co.uk)
