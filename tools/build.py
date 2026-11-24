@@ -9,7 +9,7 @@ from pathlib import Path
 from content import INDUSTRIES, PROJECTS, FAQ_GENERAL, FAQ_ABOUT, FAQ_INDUSTRIES, U
 
 ROOT = Path(__file__).resolve().parent.parent
-V = "22"  # asset version (cache busting)
+V = "23"  # asset version (cache busting)
 e = html.escape
 
 ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>'
@@ -345,10 +345,11 @@ def about_page():
             + f'''
 <section class="about-intro">
   <div class="wrap">
-    <div class="intro-grid">
-      <span class="eyebrow reveal">About BuildMarque</span>
+    <div class="about-grid">
+      <div class="about-photo reveal"><img loading="lazy" src="{U}05/bout-Us.jpg" alt="Melbourne Dental Group reception by BuildMarque"></div>
       <div>
-        <p class="statement reveal">We work exclusively in sectors where compliance, safety and operational performance are critical, delivering spaces that are functional, compliant and <em>architecturally refined</em>.</p>
+        <span class="eyebrow reveal">About BuildMarque</span>
+        <p class="statement reveal" style="margin-top:20px">We work exclusively in sectors where compliance, safety and operational performance are critical, delivering spaces that are functional, compliant and <em>architecturally refined</em>.</p>
         <p class="lead reveal" style="margin-top:28px;max-width:62ch">Our strength lies in our people. BuildMarque is led by a multidisciplinary team of architects, project managers and site managers who bring deep technical knowledge and hands-on delivery experience to every project, managing complexity, controlling risk and staying accountable from the first design discussion to final handover.</p>
       </div>
     </div>
