@@ -1010,3 +1010,24 @@ footer .contact-list a:hover i { background: var(--brass); color: var(--ink); }
   .intro.v2 .split-sticky > .eyebrow { align-self: center; }
   .intro.v2 .split-media figure { height: 46vh; }
 }
+
+/* Featured project on stacked layouts: title first, then photos, then the rest */
+@media (max-width: 1100px) {
+  .featured-grid { display: flex; flex-direction: column; gap: 0; }
+  .featured-media, .featured-copy { display: contents; }
+  .featured-copy > br { display: none; }
+  .featured-copy > .eyebrow { order: 1; align-self: flex-start; }
+  .featured-copy > .tag { order: 2; }
+  .featured-copy > .h2 { order: 3; margin-bottom: 28px; }
+  .featured-media .main { order: 4; width: 100%; }
+  .featured-media .thumbs { order: 5; width: 100%; margin-top: 12px; }
+  .featured-copy > blockquote { order: 6; }
+  .featured-copy > cite { order: 7; }
+  .featured-copy > dl { order: 8; }
+  .featured-copy > .btn { order: 9; align-self: flex-start; }
+}
+@media (max-width: 680px) {
+  .featured-copy > .eyebrow, .featured-copy > .btn { align-self: center; }
+  .featured-copy > .tag, .featured-copy > .h2, .featured-copy > blockquote, .featured-copy > cite { text-align: center; }
+  .featured-copy > dl { text-align: center; }
+}
