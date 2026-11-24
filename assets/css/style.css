@@ -885,3 +885,4 @@ form.quote.light .cs-list { box-shadow: 0 24px 60px rgba(17,20,24,.18); border: 
   .feature-grid, .ind-cards, .ind-gallery-grid, .ind-gallery-grid.n2 { grid-template-columns: 1fr; }
   .ind-imgs img:nth-child(2) { margin-top: 40px; }
 }
+.btn { white-space: nowrap; }
