@@ -283,3 +283,14 @@ document.querySelectorAll('.faq-item button').forEach(btn => {
   window.addEventListener('resize', upd);
   btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 })();
+
+// FAQ page: filter questions by topic
+(() => {
+  const tabs = document.querySelectorAll('.faq-tabs button');
+  if (!tabs.length) return;
+  tabs.forEach(t => t.addEventListener('click', () => {
+    tabs.forEach(b => b.classList.toggle('on', b === t));
+    const c = t.dataset.cat;
+    document.querySelectorAll('.faq-page .faq-item').forEach(i => i.classList.toggle('hide', c !== 'all' && i.dataset.cat !== c));
+  }));
+})();

@@ -7,6 +7,12 @@ Static prototype of the redesigned **buildmarque.com.au**, for client review bef
 - `project.html` — case study template (Melbourne Dental Group): hero, write-up, "The job in short" facts table, sticky enquiry box, full photo gallery with lightbox, client quote.
 - `projects.html` — All projects archive: numbered horizontal timeline (scroll or drag sideways) with sector filters.
 
+- Inner pages: `about.html`, `industries.html`, 9 industry pages (`medical-centres`, `dental-practices`, `corporate-offices`, `allied-health`, `radiology-fitouts`, `healthcare-fitouts`, `veterinary-fitouts`, `pharmacy-fitouts`, `gym-fitouts`), `faq.html`, `contact.html`.
+
+## Editing
+Inner pages are generated: edit copy in `tools/content.py` (or layout in `tools/build.py`), then run `python3 tools/build.py`. It also keeps the menu and footer in sync on `index.html`, `project.html` and `projects.html`.
+Copy comes from the live site, shortened and lightly tidied; industry pages show 3–5 of each page's FAQs. The ~680 SEO/suburb pages in the live sitemap are left for the WordPress build.
+
 ## Inspiration (Awwwards)
 - Hero video that shrinks into a framed card as you scroll — PDA Architecture (pda.archi)
 - Full-height sector image panels that expand on hover — LPAS (lpas.com)
