@@ -200,3 +200,12 @@
     if (hash && btns.some(b => b.dataset.filter === hash)) apply(hash);
   }
 })();
+
+// FAQ accordion (one open at a time)
+document.querySelectorAll('.faq-item button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement, open = !item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => { i.classList.remove('open'); i.querySelector('button').setAttribute('aria-expanded', 'false'); });
+    if (open) { item.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); }
+  });
+});
