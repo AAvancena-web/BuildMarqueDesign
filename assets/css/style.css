@@ -490,7 +490,7 @@ footer .base { margin-top: 60px; padding-top: 24px; border-top: 1px solid rgba(2
 .steps li.on p { max-height: 120px; margin-top: 8px; }
 
 /* 3. Sector image panels (LPAS) */
-.sectors.v2 { padding-bottom: 0; }
+.sectors.v2 { padding-top: clamp(56px, 5vw, 80px); padding-bottom: 0; }
 .panels { display: flex; height: 86vh; min-height: 560px; margin-top: 50px; gap: 4px; padding: 0 4px 4px; }
 .panel {
   position: relative; flex: 1; overflow: hidden; color: #fff; border-radius: var(--radius);
