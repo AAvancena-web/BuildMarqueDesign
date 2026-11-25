@@ -1564,3 +1564,20 @@ footer .fbadges img { height: 40px; width: auto; }
   .included-list li:hover { transform: none; }
   .included-list .n { font-size: 26px; }
 }
+
+/* Included lists: full-width rows like the homepage "How we work" steps */
+.included-list { max-width: none; gap: 0; margin-top: clamp(10px, 2vw, 20px); border-top: 1px solid rgba(255,255,255,.14); }
+.included-list li {
+  background: none; border-radius: 0; padding: 22px 0; gap: 22px; align-items: baseline;
+  border-bottom: 1px solid rgba(255,255,255,.14);
+}
+.included-list li:hover { background: none; transform: none; }
+.included-list li:hover .n, .included-list li:hover { color: inherit; }
+.included-list .n { font-size: 28px; width: 34px; min-width: 34px; }
+.included-list li > .n + * , .included-list li { transition: padding .4s var(--ease); }
+.included-list li:hover { padding-left: 10px; }
+@media (max-width: 680px) {
+  .included-list li { padding: 18px 0; gap: 16px; }
+  .included-list li:hover { padding-left: 0; }
+  .included-list .n { font-size: 24px; }
+}
