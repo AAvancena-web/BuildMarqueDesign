@@ -1713,3 +1713,7 @@ footer .fbadges img { height: 40px; width: auto; }
   .site-header .wrap { gap: 10px; }
   .menu-toggle { margin-left: 0; margin-right: -8px; }
 }
+
+/* Contact page: no banner, content starts under the solid header */
+.contact-main.first { padding-top: calc(110px + clamp(40px, 5vw, 70px)); }
+@media (max-width: 680px) { .contact-main.first { padding-top: 130px; } }
