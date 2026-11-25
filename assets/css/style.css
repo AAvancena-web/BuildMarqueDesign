@@ -1422,10 +1422,10 @@ footer .fbadges img { height: 40px; width: auto; }
   .hero-content .hero-actions { gap: 10px; max-width: 320px; }
   .hero-actions .btn { font-size: 15px; padding: 14px 22px; }
   .hero-side .badges {
-    order: 2; display: flex; flex-wrap: nowrap; justify-content: center; align-items: center; gap: 16px;
-    margin-top: 26px; opacity: .8;
+    order: 2; display: flex; flex-wrap: nowrap; justify-content: center; align-items: center; gap: 14px;
+    margin-top: 26px; opacity: .8; align-self: center; width: 100%;
   }
-  .hero-side .badges img { height: 22px; }
+  .hero-side .badges img { height: 20px; }
 }
 @keyframes filmPulse { 0% { transform: scale(1); opacity: .9; } 100% { transform: scale(1.45); opacity: 0; } }
 @media (max-width: 680px) and (prefers-reduced-motion: reduce) { .play-film span.ring::after { animation: none; opacity: 0; } }
