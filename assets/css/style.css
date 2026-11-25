@@ -1717,3 +1717,23 @@ footer .fbadges img { height: 40px; width: auto; }
 /* Contact page: no banner, content starts under the solid header */
 .contact-main.first { padding-top: calc(110px + clamp(40px, 5vw, 70px)); }
 @media (max-width: 680px) { .contact-main.first { padding-top: 130px; } }
+
+/* Contact info v2: one navy panel with icon rows */
+.info-cards {
+  gap: 6px; padding: clamp(22px, 2.4vw, 34px); border-radius: 14px;
+  background: radial-gradient(ellipse 80% 70% at 0% 0%, rgba(212,162,76,.18), transparent 70%), var(--navy-deep);
+  box-shadow: 0 22px 46px rgba(7,29,57,.18);
+}
+.info-card {
+  display: flex; align-items: center; gap: 18px; text-align: left; background: none; border: 0; border-radius: 10px;
+  padding: 14px 12px; color: #fff; transition: background .35s var(--ease);
+}
+.info-card:hover { transform: none; box-shadow: none; background: rgba(255,255,255,.06); }
+.info-card .ii {
+  flex: 0 0 auto; width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center;
+  background: rgba(212,162,76,.16); color: var(--brass); transition: background .35s, color .35s;
+}
+.info-card .ii svg { width: 22px; height: 22px; }
+.info-card:hover .ii { background: var(--brass); color: var(--navy-deep); }
+.info-card small { color: rgba(255,255,255,.6); margin-bottom: 4px; }
+.info-card b { color: #fff; font-size: clamp(17px, 1.4vw, 20px); }
