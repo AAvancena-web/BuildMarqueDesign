@@ -1548,3 +1548,19 @@ footer .fbadges img { height: 40px; width: auto; }
 .included .section-head .eyebrow, .features .section-head .eyebrow { justify-content: center; }
 .included .section-head .h2, .included .section-head .lead,
 .features .section-head .h2, .features .section-head .lead { max-width: none; margin-left: auto; margin-right: auto; text-wrap: balance; }
+
+/* "What's included" lists: one item per line, centred column of soft cards */
+.included-list { display: grid; grid-template-columns: 1fr; gap: 12px; max-width: 860px; margin: clamp(10px, 2vw, 20px) auto 0; }
+.included-list li {
+  display: flex; align-items: center; gap: clamp(18px, 2.4vw, 30px); padding: 20px clamp(20px, 2.6vw, 34px);
+  border: 0; border-radius: 12px; background: rgba(255,255,255,.05);
+  font-size: clamp(17px, 1.45vw, 21px); font-weight: 600; text-align: left;
+  transition: background .4s var(--ease), transform .4s var(--ease);
+}
+.included-list li:hover { background: rgba(255,255,255,.09); transform: translateX(6px); }
+.included-list .n { flex: 0 0 auto; min-width: 2ch; font-family: var(--display); font-size: clamp(28px, 2.4vw, 36px); font-weight: 400; letter-spacing: 0; line-height: 1; color: var(--brass); }
+@media (max-width: 680px) {
+  .included-list li { padding: 16px 18px; gap: 16px; font-size: 16px; }
+  .included-list li:hover { transform: none; }
+  .included-list .n { font-size: 26px; }
+}
