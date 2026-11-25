@@ -585,7 +585,6 @@ footer .base { margin-top: 60px; padding-top: 24px; border-top: 1px solid rgba(2
 .gbadge .btn { padding: 11px 18px; font-size: 13px; margin-left: 8px; }
 .rv-row { display: flex; width: max-content; gap: 18px; padding: 9px 0; animation: rv 80s linear infinite; }
 .rv-row.rev { animation-direction: reverse; animation-duration: 95s; }
-.greviews:hover .rv-row { animation-play-state: paused; }
 @keyframes rv { to { transform: translateX(-50%); } }
 .rv {
   width: 380px; flex: 0 0 auto; background: var(--white); border-radius: 12px; padding: 24px 24px 22px;
