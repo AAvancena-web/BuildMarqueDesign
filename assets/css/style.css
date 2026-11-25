@@ -1749,3 +1749,11 @@ footer .fbadges img { height: 40px; width: auto; }
   .info-card .ii svg { width: 19px; height: 19px; }
   .info-card b { font-size: 16px; }
 }
+
+/* Map "Visit us" card: left-aligned, clear of Google's place box at the top */
+.visit-card { text-align: left; }
+@media (min-width: 1101px) {
+  .visit { min-height: 600px; }
+  .visit .wrap { padding-top: 130px; padding-bottom: 50px; }
+}
+@media (max-width: 1100px) { .visit-card { text-align: left; } }
