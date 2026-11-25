@@ -74,6 +74,9 @@
   }));
   $$('[data-lg-more]').forEach(b => b.addEventListener('click', () => b.closest('.lg-panel').classList.add('expanded')));
 
+  // Reviews (mobile): reveal the rest on demand
+  $$('[data-rv-more]').forEach(b => b.addEventListener('click', () => b.closest('.greviews').classList.add('all-reviews')));
+
   // Project filters
   const filterBtns = $$('.filters button[data-filter]');
   const applyFilter = (f, animate = true) => {

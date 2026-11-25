@@ -1446,3 +1446,19 @@ footer .fbadges img { height: 40px; width: auto; }
   .proof-item b { flex: 0 0 92px; width: 92px; font-size: 42px; line-height: 1; }
   .proof-item span { margin-top: 0; font-size: 12px; letter-spacing: .14em; line-height: 1.45; color: rgba(255,255,255,.88); }
 }
+
+/* Reviews on mobile: centred cards (review first, author last), first 4 shown, rest behind a button */
+.rv-more { display: none; }
+@media (max-width: 680px) {
+  .rv { align-items: center; text-align: center; gap: 14px; padding: 28px 22px 26px; }
+  .rv .g { position: static; order: 0; width: 22px; height: 22px; }
+  .rv .stars { order: 1; }
+  .rv p { order: 2; }
+  .rv .who { order: 3; flex-direction: column; gap: 8px; padding: 14px 0 0; margin-top: 4px; text-align: center; }
+  .rv .who > div { text-align: center; }
+  .greviews:not(.all-reviews) .rv-row:not(.rev) .rv:nth-of-type(n+5),
+  .greviews:not(.all-reviews) .rv-row + .rv-row { display: none; }
+  .rv-more { display: block; text-align: center; margin-top: 26px; }
+  .greviews.all-reviews .rv-more { display: none; }
+  .greviews-bottom { display: none; }
+}
