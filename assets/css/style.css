@@ -1664,3 +1664,15 @@ footer .fbadges img { height: 40px; width: auto; }
 .btn-ghost:hover { background: var(--brass); border-color: var(--brass); color: var(--ink); }
 .filters button, .faq-tabs button { background: #fff; border-color: var(--line); }
 .filters button.on, .faq-tabs button.on { background: var(--ink); border-color: var(--ink); color: #fff; }
+
+/* Balanced card grids: no lonely last card */
+.feature-grid:has(> .feature:nth-child(4):last-child) { grid-template-columns: repeat(4, 1fr); }
+.feature-grid:has(> .feature:nth-child(2):last-child) { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 1100px) and (min-width: 681px) {
+  .feature-grid, .ind-cards, .ind-gallery-grid.n3 { grid-template-columns: repeat(3, 1fr); }
+  .feature-grid:has(> .feature:nth-child(4):last-child), .feature-grid:has(> .feature:nth-child(2):last-child) { grid-template-columns: repeat(2, 1fr); }
+  .feature { padding-left: 22px; padding-right: 22px; }
+}
+@media (max-width: 680px) {
+  .feature-grid, .feature-grid:has(> .feature:nth-child(4):last-child), .feature-grid:has(> .feature:nth-child(2):last-child) { grid-template-columns: 1fr; }
+}
