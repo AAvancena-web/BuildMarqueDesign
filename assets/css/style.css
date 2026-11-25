@@ -1423,10 +1423,10 @@ footer .fbadges img { height: 40px; width: auto; }
   .hero-actions .btn { font-size: 14px; padding: 12px 18px; }
   .hero-actions .btn svg { width: 14px; height: 14px; }
   .hero-side .badges {
-    order: 2; display: flex; flex-wrap: nowrap; justify-content: center; align-items: center; gap: 14px;
-    margin-top: 26px; opacity: .8; align-self: center; width: 100%;
+    order: 2; display: flex; flex-wrap: nowrap; justify-content: space-between; align-items: center; gap: 10px;
+    margin: 26px auto 0; opacity: .85; align-self: center; width: 100%; max-width: 270px;
   }
-  .hero-side .badges img { height: 20px; }
+  .hero-side .badges img { height: auto; width: auto; max-height: 30px; min-width: 0; flex: 0 1 auto; }
 }
 @keyframes filmPulse { 0% { transform: scale(1); opacity: .9; } 100% { transform: scale(1.45); opacity: 0; } }
 @media (max-width: 680px) and (prefers-reduced-motion: reduce) { .play-film span.ring::after { animation: none; opacity: 0; } }
