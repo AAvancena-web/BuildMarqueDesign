@@ -712,14 +712,14 @@ footer .base { margin-top: 60px; padding-top: 24px; border-top: 1px solid rgba(2
 .dd .chev { width: 13px; height: 13px; transition: transform .3s var(--ease); }
 .dd:hover .chev { transform: rotate(180deg); }
 .dd-menu {
-  position: absolute; top: calc(100% + 14px); left: -16px; min-width: 230px; padding: 10px;
+  position: absolute; top: calc(100% + 14px); left: -16px; min-width: 0; width: max-content; padding: 8px;
   background: var(--white); border-radius: 12px; box-shadow: 0 22px 50px rgba(17,20,24,.2);
   display: grid; opacity: 0; visibility: hidden; transform: translateY(8px);
   transition: opacity .25s, transform .3s var(--ease), visibility .25s;
 }
 .dd-menu::before { content: ""; position: absolute; left: 0; right: 0; top: -16px; height: 16px; }
 .dd:hover .dd-menu, .dd:focus-within .dd-menu { opacity: 1; visibility: visible; transform: none; }
-.site-header nav .dd-menu a { color: var(--ink); padding: 9px 12px; border-radius: 8px; font-size: 14px; white-space: nowrap; }
+.site-header nav .dd-menu a { color: var(--ink); padding: 9px 16px; border-radius: 8px; font-size: 14px; white-space: nowrap; }
 .site-header nav .dd-menu a::after { display: none; }
 .site-header nav .dd-menu a:hover { background: var(--paper); color: var(--navy); }
 
