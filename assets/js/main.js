@@ -161,7 +161,7 @@
   }
 
   // Process: highlight the step whose image is in view; click a step to jump to its image
-  const stepItems = $$('.steps li');
+  const stepItems = $$('.steps li[data-step]');
   if (stepItems.length) {
     const figs = $$('.process .split-media figure');
     const sio = new IntersectionObserver(entries => {
@@ -169,9 +169,26 @@
         if (!e.isIntersecting) return;
         const n = e.target.dataset.step;
         stepItems.forEach(li => li.classList.toggle('on', li.dataset.step === n));
+        const ghost = $('.step-ghost'), label = String(+n + 1).padStart(2, '0');
+        if (ghost && ghost.textContent !== label) {
+          ghost.classList.add('swap');
+          setTimeout(() => { ghost.textContent = label; ghost.classList.remove('swap'); }, 280);
+        }
       });
     }, { rootMargin: '-45% 0px -45% 0px' });
     figs.forEach(f => sio.observe(f));
+    // Images open up as they scroll in; brass rail tracks progress through the steps
+    const fio = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); fio.unobserve(e.target); } }), { threshold: 0.2 });
+    figs.forEach(f => fio.observe(f));
+    const rail = $('.steps-rail i'), media = $('.process .split-media');
+    if (rail && media) {
+      const prog = () => {
+        const r = media.getBoundingClientRect();
+        const p = Math.min(1, Math.max(0, (innerHeight / 2 - r.top) / r.height));
+        rail.style.height = (p * 100) + '%';
+      };
+      window.addEventListener('scroll', () => requestAnimationFrame(prog), { passive: true }); prog();
+    }
     stepItems.forEach(li => li.addEventListener('click', () => {
       const f = figs.find(x => x.dataset.step === li.dataset.step);
       if (f) window.scrollTo({ top: f.getBoundingClientRect().top + scrollY - innerHeight * 0.04, behavior: 'smooth' });
