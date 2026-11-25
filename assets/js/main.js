@@ -65,6 +65,9 @@
     wrap && $('[data-strip="next"]', wrap)?.addEventListener('click', () => strip.scrollBy({ left: step(), behavior: 'smooth' }));
   });
 
+  // Logo rows: duplicate each track once so the scroll loops seamlessly
+  $$('.lg-track').forEach(t => { [...t.children].forEach(c => { const d = c.cloneNode(true); d.setAttribute('aria-hidden', 'true'); t.appendChild(d); }); });
+
   // Project filters
   const filterBtns = $$('.filters button[data-filter]');
   const applyFilter = (f, animate = true) => {
