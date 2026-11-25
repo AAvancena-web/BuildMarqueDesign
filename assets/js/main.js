@@ -65,8 +65,14 @@
     wrap && $('[data-strip="next"]', wrap)?.addEventListener('click', () => strip.scrollBy({ left: step(), behavior: 'smooth' }));
   });
 
-  // Logo rows: duplicate each track once so the scroll loops seamlessly
-  $$('.lg-track').forEach(t => { [...t.children].forEach(c => { const d = c.cloneNode(true); d.setAttribute('aria-hidden', 'true'); t.appendChild(d); }); });
+  // Logos: tabs between brands and clients, "show all" for long lists, staggered card entrance
+  const lgTabs = $$('.lg-tabs button');
+  const stagger = panel => $$('.lgc', panel).forEach((c, i) => { c.style.animation = 'none'; void c.offsetWidth; c.style.animation = ''; c.style.animationDelay = Math.min(i, 18) * 0.03 + 's'; });
+  lgTabs.forEach(btn => btn.addEventListener('click', () => {
+    lgTabs.forEach(b => b.classList.toggle('on', b === btn));
+    $$('.lg-panel').forEach(p => { const on = p.dataset.panel === btn.dataset.lg; p.classList.toggle('off', !on); if (on) stagger(p); });
+  }));
+  $$('[data-lg-more]').forEach(b => b.addEventListener('click', () => b.closest('.lg-panel').classList.add('expanded')));
 
   // Project filters
   const filterBtns = $$('.filters button[data-filter]');
