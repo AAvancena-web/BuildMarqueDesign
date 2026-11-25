@@ -1488,3 +1488,6 @@ footer .fbadges img { height: 40px; width: auto; }
 /* Phone button: icon instead of a label; keep it still on hover */
 .btn-call svg { width: 16px; height: 16px; }
 .btn.btn-call:hover svg { transform: none; }
+
+/* About page: same trust strip as the homepage */
+.about-proof { margin-top: clamp(50px, 6vw, 80px); }
