@@ -572,7 +572,7 @@ footer .base { margin-top: 60px; padding-top: 24px; border-top: 1px solid rgba(2
    ========================================================= */
 
 /* Google reviews */
-.greviews { padding: clamp(90px, 11vw, 150px) 0 clamp(70px, 8vw, 110px); background: var(--paper); overflow: hidden; }
+.greviews { padding: clamp(50px, 5vw, 80px) 0 clamp(70px, 8vw, 110px); background: var(--paper); overflow: hidden; }
 .greviews-top { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 30px; margin-bottom: 50px; }
 .greviews-top .eyebrow { justify-content: center; }
 .greviews-top .h2 { max-width: 30ch; text-wrap: balance; margin-left: auto; margin-right: auto; }
