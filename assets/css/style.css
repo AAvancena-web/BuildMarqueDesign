@@ -1595,3 +1595,33 @@ footer .fbadges img { height: 40px; width: auto; }
 }
 .included-list li:hover { padding-left: 10px; padding-right: 0; }
 @media (max-width: 680px) { .included-list li::after { width: 30px; height: 30px; background-size: 13px; } }
+
+/* Feature cards v2: numbered badge, navy hover state, gold underline */
+.feature-grid { counter-reset: feat; gap: clamp(16px, 1.6vw, 24px); }
+.feature {
+  counter-increment: feat; position: relative; overflow: hidden; border-top: 0;
+  padding: clamp(32px, 3vw, 44px) clamp(26px, 2.6vw, 38px) clamp(30px, 2.8vw, 40px);
+  box-shadow: 0 10px 30px rgba(17,20,24,.05);
+  transition: transform .5s var(--ease), box-shadow .5s var(--ease), background-color .5s var(--ease);
+}
+.feature::before {
+  content: counter(feat, decimal-leading-zero); display: grid; place-items: center;
+  width: 56px; height: 56px; border-radius: 50%; margin-bottom: 26px;
+  background: rgba(212,162,76,.14); color: var(--brass);
+  font-family: var(--display); font-size: 22px; line-height: 1;
+  transition: background-color .5s var(--ease), color .5s var(--ease), transform .5s var(--ease);
+}
+.feature::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: var(--brass);
+  transform: scaleX(0); transform-origin: left; transition: transform .6s var(--ease);
+}
+.feature h3 { font-size: clamp(26px, 2.2vw, 32px); transition: color .5s var(--ease); }
+.feature p { line-height: 1.65; transition: color .5s var(--ease); }
+@media (hover: hover) {
+  .feature:hover { transform: translateY(-8px); background-color: var(--navy-deep); box-shadow: 0 26px 50px rgba(7,29,57,.25); }
+  .feature:hover::before { background: var(--brass); color: var(--navy-deep); transform: rotate(-8deg) scale(1.05); }
+  .feature:hover::after { transform: scaleX(1); }
+  .feature:hover h3 { color: #fff; }
+  .feature:hover p { color: rgba(255,255,255,.75); }
+}
+@media (max-width: 680px) { .feature::before { margin-left: auto; margin-right: auto; } }
