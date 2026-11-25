@@ -67,10 +67,15 @@
 
   // Project filters
   const filterBtns = $$('.filters button[data-filter]');
-  const applyFilter = f => {
+  const applyFilter = (f, animate = true) => {
     filterBtns.forEach(b => b.classList.toggle('on', b.dataset.filter === f));
     let n = 0;
-    $$('.p-card').forEach(card => { const show = f === 'all' || card.dataset.sector === f; card.classList.toggle('hide', !show); if (show) n++; });
+    $$('.p-card').forEach(card => {
+      const show = f === 'all' || card.dataset.sector === f;
+      card.classList.toggle('hide', !show);
+      if (show && animate) { card.classList.remove('pop'); void card.offsetWidth; card.style.animationDelay = (n % 6) * 0.06 + 's'; card.classList.add('pop'); }
+      if (show) n++;
+    });
     const cnt = $('[data-count-shown]'); if (cnt) cnt.textContent = n;
   };
   filterBtns.forEach(btn => btn.addEventListener('click', () => {
@@ -78,7 +83,8 @@
     if ($('[data-count-shown]')) history.replaceState(null, '', btn.dataset.filter === 'all' ? location.pathname : '#' + btn.dataset.filter);
   }));
   const h0 = location.hash.slice(1);
-  if (h0 && filterBtns.some(b => b.dataset.filter === h0)) applyFilter(h0);
+  if (h0 && filterBtns.some(b => b.dataset.filter === h0)) applyFilter(h0, false);
+  else { const on = filterBtns.find(b => b.classList.contains('on')); if (on) applyFilter(on.dataset.filter, false); }
 
   // Gentle parallax on spotlight image
   const para = $$('[data-parallax]');
