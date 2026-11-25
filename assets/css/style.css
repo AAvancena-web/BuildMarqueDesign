@@ -1486,6 +1486,7 @@ footer .fbadges img { height: 40px; width: auto; }
 }
 
 /* Phone button: icon instead of a label; keep it still on hover */
+.btn-call { gap: 8px; }
 .btn-call svg { width: 16px; height: 16px; }
 .btn.btn-call:hover svg { transform: none; }
 
