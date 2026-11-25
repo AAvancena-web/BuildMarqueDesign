@@ -1650,7 +1650,7 @@ footer .fbadges img { height: 40px; width: auto; }
 
 /* Cards: centred content */
 .ind-card .body { align-items: center; text-align: center; }
-.p-meta { flex-direction: column; align-items: center; justify-content: center; gap: 6px; text-align: center; }
+.p-meta { flex-direction: row; align-items: baseline; justify-content: space-between; gap: 12px; text-align: left; }
 .info-card { text-align: center; border-left: 0; border-top: 3px solid var(--brass); }
 .info-card:hover { transform: translateY(-3px); }
 .faq-card { justify-content: center; }
