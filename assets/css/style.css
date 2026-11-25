@@ -575,7 +575,10 @@ footer .base { margin-top: 60px; padding-top: 24px; border-top: 1px solid rgba(2
 .greviews { padding: clamp(90px, 11vw, 150px) 0 clamp(70px, 8vw, 110px); background: var(--paper-2); overflow: hidden; }
 .greviews-top { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 30px; margin-bottom: 50px; }
 .greviews-top .eyebrow { justify-content: center; }
-.greviews-top .gbadge { text-align: left; }
+.greviews-top .h2 { max-width: 30ch; text-wrap: balance; margin-left: auto; margin-right: auto; }
+.greviews-bottom { display: flex; justify-content: center; margin-top: 50px; }
+.greviews-bottom .gbadge { text-align: left; }
+@media (max-width: 680px) { .greviews-bottom { margin-top: 30px; } }
 .gbadge {
   display: flex; align-items: center; gap: 18px; background: var(--white); border-radius: 14px;
   padding: 18px 22px; box-shadow: 0 10px 30px rgba(17,20,24,.06);
