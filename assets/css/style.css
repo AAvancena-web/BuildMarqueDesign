@@ -572,7 +572,7 @@ footer .base { margin-top: 60px; padding-top: 24px; border-top: 1px solid rgba(2
    ========================================================= */
 
 /* Google reviews */
-.greviews { padding: clamp(90px, 11vw, 150px) 0 clamp(70px, 8vw, 110px); background: var(--paper-2); overflow: hidden; }
+.greviews { padding: clamp(90px, 11vw, 150px) 0 clamp(70px, 8vw, 110px); background: var(--paper); overflow: hidden; }
 .greviews-top { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 30px; margin-bottom: 50px; }
 .greviews-top .eyebrow { justify-content: center; }
 .greviews-top .h2 { max-width: 30ch; text-wrap: balance; margin-left: auto; margin-right: auto; }
@@ -1132,7 +1132,7 @@ footer .contact-list a:hover i { background: var(--brass); color: var(--ink); }
 }
 
 /* Stats strip (replaces "Who we are") */
-.kstats { background: var(--paper); padding: clamp(70px, 8vw, 120px) 0; }
+.kstats { background: var(--paper-2); padding: clamp(70px, 8vw, 120px) 0; }
 .kstats-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
 .kstat { text-align: center; padding: 0 clamp(20px, 3vw, 56px); }
 .kstat + .kstat { border-left: 1px solid var(--line); }
