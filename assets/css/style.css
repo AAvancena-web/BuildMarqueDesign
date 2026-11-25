@@ -87,10 +87,10 @@ h1, h2, h3 { font-weight: 400; margin: 0; }
   padding: 22px 0;
 }
 .site-header .wrap { display: flex; align-items: center; gap: 32px; }
-.site-header .logo img { height: 42px; width: auto; transition: height .4s var(--ease); }
+.site-header .logo img { height: 58px; width: auto; transition: height .4s var(--ease); }
 .site-header nav { margin-left: auto; display: flex; gap: 30px; }
 .site-header nav a {
-  color: #fff; font-size: 14px; font-weight: 600; letter-spacing: .02em; position: relative; padding: 6px 0;
+  color: #fff; font-size: 16px; font-weight: 600; letter-spacing: .02em; position: relative; padding: 6px 0;
 }
 .site-header nav a::after {
   content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--brass);
@@ -102,7 +102,15 @@ h1, h2, h3 { font-weight: 400; margin: 0; }
 .header-cta .phone small { display: block; font-size: 11px; font-weight: 600; opacity: .65; letter-spacing: .08em; text-transform: uppercase; }
 .header-cta .btn { padding: 12px 20px; font-size: 14px; }
 .site-header.scrolled { background: rgba(17, 20, 24, .92); backdrop-filter: blur(12px); padding: 12px 0; }
-.site-header.scrolled .logo img { height: 36px; }
+.site-header.scrolled .logo img { height: 46px; }
+/* Narrow desktops: tighten the larger header so it stays on one line */
+@media (min-width: 1101px) and (max-width: 1300px) {
+  .site-header .wrap { gap: 22px; }
+  .site-header nav { gap: 20px; }
+  .site-header nav a { font-size: 15px; }
+  .site-header .logo img { height: 50px; }
+  .header-cta { gap: 16px; }
+}
 .menu-toggle { display: none; background: none; border: 0; color: #fff; padding: 8px; margin-left: auto; }
 .menu-toggle svg { width: 28px; height: 28px; }
 
@@ -120,8 +128,10 @@ h1, h2, h3 { font-weight: 400; margin: 0; }
     linear-gradient(0deg, rgba(10,12,15,.82) 0%, rgba(10,12,15,.25) 45%, rgba(10,12,15,0) 70%);
 }
 .hero-content {
-  position: absolute; z-index: 2; left: 0; right: 0; bottom: clamp(40px, 8vh, 96px);
+  position: absolute; z-index: 2; left: 0; right: 0; bottom: clamp(80px, 15vh, 170px);
 }
+/* Scale the headline with viewport height too, so the buttons and badges stay above the fold on shorter screens */
+.hero h1.display { font-size: clamp(44px, min(6.4vw, 10.5vh), 104px); }
 .hero-content .wrap { display: grid; grid-template-columns: 1.5fr 1fr; align-items: end; gap: 40px; }
 .hero h1 { margin: 18px 0 30px; max-width: 15ch; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
@@ -542,7 +552,7 @@ footer .base { margin-top: 60px; padding-top: 24px; border-top: 1px solid rgba(2
   .enquire { position: static; }
 }
 .site-header.solid { background: rgba(17, 20, 24, .94); padding: 12px 0; }
-.site-header.solid .logo img { height: 36px; }
+.site-header.solid .logo img { height: 46px; }
 
 /* =========================================================
    v3: Google reviews, FAQ, map
