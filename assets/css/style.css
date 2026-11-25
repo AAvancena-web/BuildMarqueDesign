@@ -1516,8 +1516,13 @@ footer .fbadges img { height: 40px; width: auto; }
 
 /* Inner page banners: full-height on desktop, accreditation badges under the buttons */
 @media (min-width: 1101px) {
-  .page-hero, .page-hero.short { min-height: 100vh; min-height: 100svh; align-items: center; }
-  .page-hero .wrap { padding-top: 120px; padding-bottom: 60px; }
+  .page-hero, .page-hero.short { min-height: 100vh; min-height: 100svh; align-items: stretch; }
+  .page-hero .wrap { display: flex; flex-direction: column; align-items: center; min-height: 100vh; min-height: 100svh; padding-top: 130px; padding-bottom: 44px; }
+  .page-hero .crumbs { margin-top: auto; margin-bottom: 34px; }
+  .page-hero .ph-badges { margin-top: auto; padding-top: 50px; }
+  .page-hero .page-title { margin-top: 22px; }
+  .page-hero .page-lead { margin-top: 28px; }
+  .page-hero .hero-actions { margin-top: 42px !important; }
 }
 .ph-badges { display: flex; justify-content: center; align-items: center; gap: 28px; margin-top: clamp(36px, 5vh, 56px); opacity: .85; }
 .ph-badges img { height: 38px; width: auto; }
