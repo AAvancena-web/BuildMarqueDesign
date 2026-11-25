@@ -576,6 +576,10 @@ footer .base { margin-top: 60px; padding-top: 24px; border-top: 1px solid rgba(2
 .greviews-top { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 30px; margin-bottom: 50px; }
 .greviews-top .eyebrow { justify-content: center; }
 .greviews-top .h2 { max-width: 30ch; text-wrap: balance; margin-left: auto; margin-right: auto; }
+.sectors .section-head { grid-template-columns: 1fr; justify-items: center; text-align: center; gap: 22px; }
+.sectors .section-head .eyebrow { justify-content: center; }
+.sectors .section-head .h2 { max-width: 22ch; margin-left: auto; margin-right: auto; text-wrap: balance; }
+.sectors .section-head .lead { max-width: 60ch; margin: 0 auto; }
 .greviews-bottom { display: flex; justify-content: center; margin-top: 50px; }
 .greviews-bottom .gbadge { text-align: left; }
 @media (max-width: 680px) { .greviews-bottom { margin-top: 30px; } }
