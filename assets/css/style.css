@@ -1363,3 +1363,8 @@ footer .base { margin-top: clamp(50px, 6vw, 80px); border-top: 1px solid rgba(25
   footer ul:not(.contact-list) a:hover::before { width: 0; }
   footer ul:not(.contact-list) a:hover { gap: 0; }
 }
+
+/* Footer accreditation badges: tidy 2 x 2 grid */
+footer .fbadges { display: grid; grid-template-columns: repeat(2, max-content); gap: 22px 36px; align-items: center; }
+footer .fbadges img { height: 40px; width: auto; }
+@media (max-width: 680px) { footer .fbadges { justify-content: center; } }
