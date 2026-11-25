@@ -1676,3 +1676,7 @@ footer .fbadges img { height: 40px; width: auto; }
 @media (max-width: 680px) {
   .feature-grid, .feature-grid:has(> .feature:nth-child(4):last-child), .feature-grid:has(> .feature:nth-child(2):last-child) { grid-template-columns: 1fr; }
 }
+
+/* No width limits on headings and intro/body copy */
+.h2, .lead, .ind-copy p, .cs-text p { max-width: none; }
+.cta.center .h2, .cta.center .lead { max-width: none; text-wrap: balance; }
