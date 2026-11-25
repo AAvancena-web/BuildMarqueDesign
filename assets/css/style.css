@@ -1354,14 +1354,7 @@ footer .contact-list i { background: rgba(212,162,76,.12); }
 footer .socials a { border-color: rgba(255,255,255,.18); }
 footer .fbadges img { opacity: .8; transition: opacity .3s; }
 footer .fbadges img:hover { opacity: 1; }
-footer .fmark {
-  margin: clamp(50px, 6vw, 90px) 0 0; padding-bottom: .14em; text-align: center; white-space: nowrap; user-select: none;
-  font-family: var(--display); font-size: clamp(64px, 15.5vw, 290px); line-height: .78; letter-spacing: -.02em;
-  color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,.14);
-  background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,0) 85%); -webkit-background-clip: text; background-clip: text;
-}
-footer .fmark em { font-style: italic; -webkit-text-stroke-color: rgba(212,162,76,.45); background: linear-gradient(180deg, rgba(212,162,76,.22), rgba(212,162,76,0) 85%); -webkit-background-clip: text; background-clip: text; }
-footer .base { margin-top: 0; border-top: 1px solid rgba(255,255,255,.1); position: relative; z-index: 1; }
+footer .base { margin-top: clamp(50px, 6vw, 80px); border-top: 1px solid rgba(255,255,255,.1); position: relative; z-index: 1; }
 @media (max-width: 1100px) { footer .cols { grid-template-columns: 1fr 1fr; } footer .cols > div:first-child { grid-column: 1 / -1; max-width: none; } }
 @media (max-width: 680px) {
   footer .cols { grid-template-columns: 1fr 1fr; row-gap: 40px; text-align: center; }
