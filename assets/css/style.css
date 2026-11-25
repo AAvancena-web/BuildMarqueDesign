@@ -1392,3 +1392,40 @@ footer .fbadges img { height: 40px; width: auto; }
   .hero-content { position: relative; bottom: auto; padding: 140px 0 70px; }
 }
 @media (max-width: 680px) { .hero-content { padding: 120px 0 70px; } }
+
+/* Mobile banner v2: let the film breathe — compact copy at the bottom, a featured play button in the open video area */
+@media (max-width: 680px) {
+  .hero-media::after {
+    background: linear-gradient(0deg, rgba(10,12,15,.88) 0%, rgba(10,12,15,.55) 38%, rgba(10,12,15,.08) 62%, rgba(10,12,15,.4) 100%);
+  }
+  .hero-content { flex: 1; display: flex; padding: 100px 0 34px; }
+  .hero-content .wrap { flex: 1; display: flex; flex-direction: column; gap: 0; }
+  .hero-side { display: contents; }
+  .play-film {
+    order: 0; margin: auto; flex-direction: column; gap: 14px;
+    font-size: 11.5px; letter-spacing: .2em;
+  }
+  .play-film span.ring {
+    width: 84px; height: 84px; border: 1px solid rgba(255,255,255,.75);
+    background: rgba(255,255,255,.14); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+    position: relative;
+  }
+  .play-film span.ring::after {
+    content: ""; position: absolute; inset: -1px; border-radius: 50%; border: 1px solid rgba(212,162,76,.9);
+    animation: filmPulse 2.4s var(--ease) infinite;
+  }
+  .play-film svg { width: 22px; height: 22px; }
+  .hero-content .wrap > div:first-child { order: 1; margin-top: 28px; align-self: stretch; width: 100%; text-align: center; }
+  .hero-content .hero-actions { margin-left: auto; margin-right: auto; }
+  .hero .eyebrow { font-size: 10px; letter-spacing: .16em; }
+  .hero h1.display { font-size: clamp(32px, 9vw, 40px); line-height: 1.02; margin: 10px auto 20px; max-width: none; text-wrap: balance; }
+  .hero-content .hero-actions { gap: 10px; max-width: 320px; }
+  .hero-actions .btn { font-size: 15px; padding: 14px 22px; }
+  .hero-side .badges {
+    order: 2; display: flex; flex-wrap: nowrap; justify-content: center; align-items: center; gap: 16px;
+    margin-top: 26px; opacity: .8;
+  }
+  .hero-side .badges img { height: 22px; }
+}
+@keyframes filmPulse { 0% { transform: scale(1); opacity: .9; } 100% { transform: scale(1.45); opacity: 0; } }
+@media (max-width: 680px) and (prefers-reduced-motion: reduce) { .play-film span.ring::after { animation: none; opacity: 0; } }
