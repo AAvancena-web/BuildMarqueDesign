@@ -582,7 +582,7 @@ footer .base { margin-top: 60px; padding-top: 24px; border-top: 1px solid rgba(2
 .sectors .section-head .lead { max-width: none; margin: 0; }
 .greviews-bottom { display: flex; justify-content: center; align-items: center; gap: clamp(30px, 5vw, 80px); flex-wrap: wrap; margin-top: clamp(50px, 5vw, 70px); }
 /* Proof numbers sit beside the Google badge, under the reviews */
-.proof { display: flex; gap: clamp(30px, 4.5vw, 72px); }
+.proof { display: flex; justify-content: center; gap: clamp(30px, 4.5vw, 72px); margin-top: 6px; }
 .proof-item { text-align: center; }
 .proof-item b { display: block; font-family: var(--display); font-weight: 400; font-size: clamp(52px, 4.6vw, 78px); line-height: .95; color: var(--brass); }
 .proof-item span { display: block; margin-top: 8px; font-size: 12.5px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--ink); }
