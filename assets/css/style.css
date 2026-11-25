@@ -77,6 +77,9 @@ h1, h2, h3 { font-weight: 400; margin: 0; }
 .btn-primary:hover { background: #e3b765; }
 .btn-ghost { border-color: rgba(255,255,255,.5); color: #fff; }
 .btn-ghost:hover { background: #fff; color: var(--ink); }
+/* Homepage banner: solid white secondary CTA */
+.hero .btn-ghost { background: #fff; border-color: #fff; color: var(--ink); }
+.hero .btn-ghost:hover { background: var(--brass); border-color: var(--brass); color: var(--ink); }
 .btn-dark { background: var(--ink); color: #fff; }
 .btn-dark:hover { background: var(--navy); }
 .btn-line { border-color: var(--ink); color: var(--ink); }
@@ -100,9 +103,9 @@ h1, h2, h3 { font-weight: 400; margin: 0; }
 }
 .site-header nav a:hover::after, .site-header nav a.active::after { transform: scaleX(1); }
 .header-cta { display: flex; align-items: center; gap: 22px; }
-.header-cta .phone { color: #fff; font-size: 14px; font-weight: 700; white-space: nowrap; }
-.header-cta .phone small { display: block; font-size: 11px; font-weight: 600; opacity: .65; letter-spacing: .08em; text-transform: uppercase; }
-.header-cta .btn { padding: 12px 20px; font-size: 14px; }
+.header-cta .phone { color: #fff; font-size: 16px; font-weight: 700; white-space: nowrap; }
+.header-cta .phone small { display: block; font-size: 12px; font-weight: 600; opacity: .65; letter-spacing: .08em; text-transform: uppercase; }
+.header-cta .btn { padding: 14px 24px; font-size: 16px; }
 .site-header.scrolled { background: rgba(17, 20, 24, .92); backdrop-filter: blur(12px); padding: 12px 0; }
 .site-header.scrolled .logo img { height: 46px; }
 /* Narrow desktops: tighten the larger header so it stays on one line */
@@ -112,6 +115,12 @@ h1, h2, h3 { font-weight: 400; margin: 0; }
   .site-header nav a { font-size: 15px; }
   .site-header .logo img { height: 50px; }
   .header-cta { gap: 16px; }
+  .header-cta .phone, .header-cta .btn { font-size: 15px; }
+  .header-cta .btn { padding: 13px 20px; }
+}
+@media (min-width: 1101px) and (max-width: 1180px) {
+  .site-header nav { gap: 16px; }
+  .site-header .logo img { height: 44px; }
 }
 .menu-toggle { display: none; background: none; border: 0; color: #fff; padding: 8px; margin-left: auto; }
 .menu-toggle svg { width: 28px; height: 28px; }
