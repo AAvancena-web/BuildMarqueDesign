@@ -1527,8 +1527,8 @@ footer .fbadges img { height: 40px; width: auto; }
 .ph-badges { display: flex; justify-content: center; align-items: center; gap: 28px; margin-top: clamp(36px, 5vh, 56px); opacity: .85; }
 .ph-badges img { height: 38px; width: auto; }
 @media (max-width: 680px) {
-  .ph-badges { justify-content: space-between; gap: 10px; max-width: 270px; margin: 30px auto 0; }
-  .ph-badges img { height: auto; max-height: 30px; min-width: 0; flex: 0 1 auto; }
+  .page-hero .ph-badges { display: flex; flex-wrap: nowrap; justify-content: space-between; align-items: center; gap: 10px; width: 100%; max-width: 270px; margin: 30px auto 0; }
+  .page-hero .ph-badges img { height: auto; width: auto; max-height: 30px; min-width: 0; flex: 0 1 auto; }
 }
 
 /* Buttons after content paragraphs */
