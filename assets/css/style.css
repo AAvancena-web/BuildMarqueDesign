@@ -1368,3 +1368,8 @@ footer .base { margin-top: clamp(50px, 6vw, 80px); border-top: 1px solid rgba(25
 footer .fbadges { display: grid; grid-template-columns: repeat(2, max-content); gap: 22px 36px; align-items: center; }
 footer .fbadges img { height: 40px; width: auto; }
 @media (max-width: 680px) { footer .fbadges { justify-content: center; } }
+
+/* Header: menu centred between the logo and the call/quote block */
+@media (min-width: 1101px) {
+  .site-header nav { flex: 1; margin-left: 0; justify-content: center; }
+}
