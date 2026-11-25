@@ -1640,3 +1640,19 @@ footer .fbadges img { height: 40px; width: auto; }
 /* Feature cards: centred on all screen sizes */
 .feature { text-align: center; }
 .feature::before { margin-left: auto; margin-right: auto; }
+
+/* Section headings everywhere: one centred column, no width limits */
+.section-head { grid-template-columns: 1fr; justify-items: center; text-align: center; gap: 18px; }
+.section-head > div { text-align: center; }
+.section-head .eyebrow { justify-content: center; }
+.section-head .h2, .section-head .lead { max-width: none; margin-left: auto; margin-right: auto; text-wrap: balance; }
+.section-head > div[style*="justify-self"] { justify-self: center !important; }
+
+/* Cards: centred content */
+.ind-card .body { align-items: center; text-align: center; }
+.p-meta { flex-direction: column; align-items: center; justify-content: center; gap: 6px; text-align: center; }
+.info-card { text-align: center; border-left: 0; border-top: 3px solid var(--brass); }
+.info-card:hover { transform: translateY(-3px); }
+.faq-card { justify-content: center; }
+.faq-card div { width: 100%; text-align: center; }
+.visit-card { text-align: center; }
