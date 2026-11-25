@@ -1484,3 +1484,7 @@ footer .fbadges img { height: 40px; width: auto; }
   .page-hero .btn, .cs-hero .btn { font-size: 14px; padding: 12px 18px; }
   .page-hero .btn svg, .cs-hero .btn svg { width: 14px; height: 14px; }
 }
+
+/* Phone button: icon instead of a label; keep it still on hover */
+.btn-call svg { width: 16px; height: 16px; }
+.btn.btn-call:hover svg { transform: none; }
