@@ -225,29 +225,13 @@ h1, h2, h3 { font-weight: 400; margin: 0; }
 .projects { padding: clamp(90px, 11vw, 160px) 0; background: var(--white); }
 .section-head { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: end; margin-bottom: 50px; }
 .section-head .h2 { margin-top: 18px; }
-.filters { display: flex; flex-wrap: wrap; align-items: center; row-gap: 8px; margin-bottom: 40px; }
-/* Text tabs with thin separators, active tab in navy with an underline (matches buildmarque.com.au) */
-.filters button, .filters a {
-  position: relative; border: 0; background: none; padding: 8px 0; margin: 0 20px;
-  font-family: var(--sans); font-size: 17px; font-weight: 600; color: #5b6168; cursor: pointer; transition: color .25s;
+.filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; }
+.filters button {
+  border: 1px solid var(--line); background: transparent; padding: 10px 18px; border-radius: 999px;
+  font-size: 14px; font-weight: 600; color: var(--ink-2); transition: all .25s;
 }
-.filters > :first-child { margin-left: 0; }
-.filters > :last-child { margin-right: 0; }
-.filters > * + *::before {
-  content: ""; position: absolute; left: -21px; top: 50%; width: 1px; height: 18px; transform: translateY(-50%);
-  background: #5b6168; pointer-events: none;
-}
-.filters button::after, .filters a::after {
-  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1.5px; background: var(--navy);
-  transform: scaleX(0); transform-origin: left; transition: transform .35s var(--ease);
-}
-.filters button:hover, .filters a:hover { color: var(--navy); }
-.filters button.on { color: var(--navy); }
-.filters button.on::after { transform: scaleX(1); }
-@media (max-width: 680px) {
-  .filters button, .filters a { font-size: 15px; margin: 0 12px; }
-  .filters > * + *::before { left: -13px; height: 14px; }
-}
+.filters button:hover { border-color: var(--ink); }
+.filters button.on { background: var(--ink); border-color: var(--ink); color: #fff; }
 .project-grid {
   display: grid; grid-template-columns: repeat(12, 1fr); gap: 22px; grid-auto-flow: dense;
 }
@@ -1311,3 +1295,8 @@ footer .contact-list a:hover i { background: var(--brass); color: var(--ink); }
   .project-grid .p-card.reveal, .project-grid .p-card.reveal .ph, .project-grid .p-card.reveal img { transform: none; clip-path: none; transition: none; }
   .project-grid .p-card.pop { animation: none; }
 }
+
+/* Homepage: the two OPG cards share the last row so it stays full */
+#work .p-card[data-sector="opg"] { grid-column: span 6; }
+#work .p-card[data-sector="opg"] .ph { aspect-ratio: 16 / 10; }
+@media (max-width: 680px) { #work .p-card[data-sector="opg"] { grid-column: span 12; } }
