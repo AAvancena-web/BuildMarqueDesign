@@ -1462,3 +1462,16 @@ footer .fbadges img { height: 40px; width: auto; }
   .greviews.all-reviews .rv-more { display: none; }
   .greviews-bottom { display: none; }
 }
+
+/* Footer on mobile: everything centred, columns top-aligned */
+@media (max-width: 680px) {
+  footer .cols { align-items: start; justify-items: center; text-align: center; }
+  footer .cols > div { display: flex; flex-direction: column; align-items: center; text-align: center; }
+  footer .cols p { margin-left: auto; margin-right: auto; }
+  footer .fbadges { justify-content: center; justify-items: center; margin-left: auto; margin-right: auto; }
+  footer ul { justify-items: center; }
+  footer .contact-list { justify-items: center; }
+  footer .contact-list a { justify-content: center; text-align: center; }
+  footer .socials { justify-content: center; }
+  footer .base { flex-direction: column; align-items: center; text-align: center; gap: 8px; }
+}
