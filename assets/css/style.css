@@ -1419,8 +1419,9 @@ footer .fbadges img { height: 40px; width: auto; }
   .hero-content .hero-actions { margin-left: auto; margin-right: auto; }
   .hero .eyebrow { font-size: 10px; letter-spacing: .16em; }
   .hero h1.display { font-size: clamp(32px, 9vw, 40px); line-height: 1.02; margin: 10px auto 20px; max-width: none; text-wrap: balance; }
-  .hero-content .hero-actions { gap: 10px; max-width: 320px; }
-  .hero-actions .btn { font-size: 15px; padding: 14px 22px; }
+  .hero-content .hero-actions { gap: 8px; max-width: 270px; }
+  .hero-actions .btn { font-size: 14px; padding: 12px 18px; }
+  .hero-actions .btn svg { width: 14px; height: 14px; }
   .hero-side .badges {
     order: 2; display: flex; flex-wrap: nowrap; justify-content: center; align-items: center; gap: 14px;
     margin-top: 26px; opacity: .8; align-self: center; width: 100%;
