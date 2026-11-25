@@ -573,7 +573,9 @@ footer .base { margin-top: 60px; padding-top: 24px; border-top: 1px solid rgba(2
 
 /* Google reviews */
 .greviews { padding: clamp(90px, 11vw, 150px) 0 clamp(70px, 8vw, 110px); background: var(--paper-2); overflow: hidden; }
-.greviews-top { display: flex; justify-content: space-between; align-items: end; gap: 30px; flex-wrap: wrap; margin-bottom: 50px; }
+.greviews-top { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 30px; margin-bottom: 50px; }
+.greviews-top .eyebrow { justify-content: center; }
+.greviews-top .gbadge { text-align: left; }
 .gbadge {
   display: flex; align-items: center; gap: 18px; background: var(--white); border-radius: 14px;
   padding: 18px 22px; box-shadow: 0 10px 30px rgba(17,20,24,.06);
