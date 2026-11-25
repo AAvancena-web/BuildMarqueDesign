@@ -1314,15 +1314,15 @@ footer .contact-list a:hover i { background: var(--brass); color: var(--ink); }
 .lg-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: clamp(12px, 1.4vw, 20px); }
 .lgc {
   background: #fff; border-radius: 12px; aspect-ratio: 2 / 1; display: grid; place-items: center; overflow: hidden;
-  padding: 10px 16px; position: relative; box-shadow: 0 8px 22px rgba(17,20,24,.05);
+  padding: 0; position: relative; box-shadow: 0 8px 22px rgba(17,20,24,.05);
   transition: transform .45s var(--ease), box-shadow .45s var(--ease);
   animation: cardIn .7s var(--ease) backwards;
 }
 .lgc::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: var(--brass); transform: scaleX(0); transform-origin: left; transition: transform .45s var(--ease); }
-.lgc img { width: 100%; height: 100%; object-fit: contain; transform: scale(1.06); transition: transform .45s var(--ease); }
+.lgc img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.07); transition: transform .45s var(--ease); }
 .lgc:hover { transform: translateY(-6px); box-shadow: 0 22px 44px rgba(7,29,57,.14); }
 .lgc:hover::after { transform: scaleX(1); }
-.lgc:hover img { transform: scale(1.12); }
+.lgc:hover img { transform: scale(1.13); }
 .lg-panel.limited:not(.expanded) .lgc:nth-child(n+19) { display: none; }
 .lg-more { text-align: center; margin-top: clamp(30px, 3.5vw, 46px); }
 .lg-panel.expanded .lg-more { display: none; }
