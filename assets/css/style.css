@@ -1525,3 +1525,21 @@ footer .fbadges img { height: 40px; width: auto; }
   .ph-badges { justify-content: space-between; gap: 10px; max-width: 270px; margin: 30px auto 0; }
   .ph-badges img { height: auto; max-height: 30px; min-width: 0; flex: 0 1 auto; }
 }
+
+/* Buttons after content paragraphs */
+.copy-ctas { margin-top: 30px; }
+.ind-copy .copy-ctas { display: inline-grid; }
+@media (max-width: 680px) {
+  .copy-ctas { max-width: 270px; gap: 8px; margin-left: auto; margin-right: auto; display: grid; }
+  .copy-ctas .btn { font-size: 14px; padding: 12px 18px; }
+  .copy-ctas .btn svg { width: 14px; height: 14px; }
+}
+/* About: trust strip sits in the text column under the intro copy */
+.about-grid .about-proof { margin-top: 36px; }
+@media (min-width: 681px) { .about-grid .about-proof .proof-item { padding: 26px 16px 22px; } .about-grid .about-proof .proof-item b { font-size: clamp(44px, 3.6vw, 62px); } }
+
+/* About: "True turnkey service" and "Safety & quality" headings centred, no width limits */
+.included .section-head, .features .section-head { grid-template-columns: 1fr; justify-items: center; text-align: center; gap: 18px; }
+.included .section-head .eyebrow, .features .section-head .eyebrow { justify-content: center; }
+.included .section-head .h2, .included .section-head .lead,
+.features .section-head .h2, .features .section-head .lead { max-width: none; margin-left: auto; margin-right: auto; text-wrap: balance; }
