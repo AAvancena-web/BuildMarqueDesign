@@ -1344,7 +1344,6 @@ footer {
 footer .cols { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.3fr; gap: clamp(30px, 4vw, 70px); }
 footer .cols > div:first-child { max-width: 440px; }
 footer h4 { display: flex; align-items: center; gap: 12px; color: var(--brass); font-size: 12.5px; margin: 8px 0 22px; }
-footer h4::after { content: ""; width: 28px; height: 1px; background: rgba(212,162,76,.6); }
 footer ul:not(.contact-list) a { position: relative; display: inline-flex; align-items: center; gap: 0; color: rgba(255,255,255,.78); transition: color .3s, gap .35s var(--ease); }
 footer ul:not(.contact-list) a::before { content: ""; width: 0; height: 1px; background: var(--brass); transition: width .35s var(--ease); }
 footer ul:not(.contact-list) a:hover { color: #fff; gap: 10px; }
@@ -1361,7 +1360,6 @@ footer .base { margin-top: clamp(50px, 6vw, 80px); border-top: 1px solid rgba(25
   footer .cols > div:first-child, footer .cols > div:last-child { grid-column: 1 / -1; }
   footer ul:not(.contact-list) { gap: 8px; font-size: 14.5px; }
   footer h4 { justify-content: center; }
-  footer h4::after { display: none; }
   footer ul:not(.contact-list) a:hover::before { width: 0; }
   footer ul:not(.contact-list) a:hover { gap: 0; }
 }
