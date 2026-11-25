@@ -1132,7 +1132,7 @@ footer .contact-list a:hover i { background: var(--brass); color: var(--ink); }
 }
 
 /* Stats strip (replaces "Who we are") */
-.kstats { background: var(--paper-2); padding: clamp(80px, 9vw, 130px) 0; }
+.kstats { background: var(--paper-2); padding: clamp(56px, 6vw, 90px) 0; }
 .kstats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(40px, 5vw, 90px); }
 .kstat { text-align: center; }
 .kstat-top { display: flex; flex-direction: column; align-items: center; gap: 22px; margin-bottom: 18px; }
@@ -1147,6 +1147,6 @@ footer .contact-list a:hover i { background: var(--brass); color: var(--ink); }
 }
 .kstat p { color: var(--muted); font-size: 16px; line-height: 1.6; max-width: 30ch; margin: 0 auto; }
 @media (max-width: 900px) {
-  .kstats-grid { grid-template-columns: 1fr; gap: 64px; }
+  .kstats-grid { grid-template-columns: 1fr; gap: 44px; }
   .kstat-ic { width: 64px; height: 64px; padding: 16px; }
 }
