@@ -1636,3 +1636,7 @@ footer .fbadges img { height: 40px; width: auto; }
   .inc-grid { grid-template-columns: 1fr; }
   .inc-img { min-height: 0; aspect-ratio: 16 / 9; }
 }
+
+/* Feature cards: centred on all screen sizes */
+.feature { text-align: center; }
+.feature::before { margin-left: auto; margin-right: auto; }
