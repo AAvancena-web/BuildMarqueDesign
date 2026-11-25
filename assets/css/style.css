@@ -1737,3 +1737,15 @@ footer .fbadges img { height: 40px; width: auto; }
 .info-card:hover .ii { background: var(--brass); color: var(--navy-deep); }
 .info-card small { color: rgba(255,255,255,.6); margin-bottom: 4px; }
 .info-card b { color: #fff; font-size: clamp(17px, 1.4vw, 20px); }
+
+/* Contact page on small phones: never wider than the screen */
+.contact-grid > * { min-width: 0; }
+.info-card .it { min-width: 0; }
+.info-card b { overflow-wrap: anywhere; }
+@media (max-width: 680px) {
+  .info-cards { padding: 16px 12px; }
+  .info-card { gap: 14px; padding: 12px 8px; }
+  .info-card .ii { width: 44px; height: 44px; }
+  .info-card .ii svg { width: 19px; height: 19px; }
+  .info-card b { font-size: 16px; }
+}
