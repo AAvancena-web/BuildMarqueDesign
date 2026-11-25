@@ -323,6 +323,7 @@ document.querySelectorAll('.faq-item button').forEach(btn => {
     const p = max > 0 ? scrollY / max : 0;
     bar.style.strokeDashoffset = C * (1 - p);
     btn.classList.toggle('show', scrollY > innerHeight * 0.6);
+    const fc = document.querySelector('.float-call'); if (fc) fc.classList.toggle('show', btn.classList.contains('show'));
     btn.classList.toggle('lift', scrollY + innerHeight > document.documentElement.scrollHeight - 70);
   };
   upd();
